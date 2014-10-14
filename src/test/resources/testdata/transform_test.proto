@@ -1,0 +1,34 @@
+package proto.transform_test;
+
+option java_package = "com.yahoo.xpathproto";
+option java_outer_classname = "TransformTestProtos";
+
+message TransformedMessage {
+    required string src = 1;
+    required string var_src = 2;
+    required string src_path = 3;
+    required string string_value = 4;
+    required int32 int_value = 5;
+    required int64 long_value = 6;
+    required bool bool_value = 7;
+
+    repeated string str_values = 8;
+
+    required string nested = 9;
+
+	required int64 ts_update = 10;
+    optional string optional_value = 11;
+    
+    optional ContentImage image_by_transform = 12;
+    repeated ContentImage images_by_transform = 13;
+    
+    optional ContentImage image_by_handler = 14;
+    repeated ContentImage images_by_handler = 15;
+}
+
+message ContentImage {
+  required string url       = 1;
+  optional string type      = 2;
+  optional uint32 width     = 5;
+  optional uint32 height    = 6;
+}

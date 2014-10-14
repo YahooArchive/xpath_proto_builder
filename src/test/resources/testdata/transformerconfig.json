@@ -1,0 +1,41 @@
+{
+  "definitions": {
+    "test_transform": {
+      "proto": "com.yahoo.xpathproto.TransformTestProtos$TransformedMessage",
+      "transforms": [
+          { "field": "src", "path": "_src", "variable": "var_src" },
+          { "field": "var_src", "path": "$var_src" },
+          { "field": "src_path", "path": "src/path" },
+          { "field": "string_value" },
+          { "field": "int_value" },
+          { "field": "long_value" },
+          { "field": "bool_value" },
+          { "field": "str_values" },
+          { "path": "select", "definition": "select_transform" },
+          { "field": "image_by_transform", "definition": "image_transform", "path": "image" },
+          { "field": "ts_update", "handler": "com.yahoo.xpathproto.handler.TimeStampHandler" },
+          { "field": "image_by_transform", "path": "image", "definition": "image_transform" },
+          { "field": "images_by_transform", "definition": "image_transform", "path": "images" },
+          { "field": "image_by_handler", "path": "image", "handler": "com.yahoo.xpathproto.ImageHandler" },
+          { "field": "images_by_handler", "path": "images", "handler": "com.yahoo.xpathproto.ImageHandler" }
+      ]
+    },
+
+    "select_transform": {
+      "transforms": [
+        { "field": "nested" }
+      ]
+    },
+    
+    "image_transform": {
+    	"proto": "com.yahoo.xpathproto.TransformTestProtos$ContentImage",
+    	"transforms": [
+    		{"field": "url" },
+    		{"field": "type" },
+    		{"field": "height" },
+    		{"field": "width" }
+    	]
+    }
+    
+  }
+}

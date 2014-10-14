@@ -1,0 +1,31 @@
+{
+  "definitions": {
+    "test_transform": {
+      "proto": "com.yahoo.xpathproto.TransformTestProtos$TransformedMessage",
+      "transforms": [
+          { "field": "src", "path": "_src", "variable": "var_src" },
+          { "field": "var_src", "path": "$var_src" },
+          { "field": "src_path", "path": "src/path", "handler": "com.yahoo.xpathproto.DummyObjectToFieldHandler"},
+          { "field": "string_value" },
+          { "field": "int_value" },
+          { "field": "long_value" },
+          { "field": "bool_value" },
+          { "field": "str_values", "handler": "com.yahoo.xpathproto.DummyObjectToFieldHandler"},
+          { "path": "select", "definition": "select_transform" }
+      ]
+    },
+
+    "select_transform": {
+      "transforms": [
+        { "field": "nested" }
+      ]
+    },
+    
+    "str_transform": {
+      "transforms": [
+        { "field": "str_values" }
+      ]
+    }
+    
+  }
+}

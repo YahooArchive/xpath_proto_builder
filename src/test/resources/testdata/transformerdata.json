@@ -1,0 +1,31 @@
+{
+  "_src": "src",
+  "src": {
+    "path": "src/path"
+  },
+  "string_value": "string_value",
+  "int_value": 100,
+  "long_value": 1000,
+  "bool_value": true,
+
+  "str_values": ["v1", "v2"],
+
+  "select": {
+    "nested": "select/nested"
+  },
+  
+  "image": {
+  	"url": "foo",
+  	"height": 100,
+  	"width": 100
+  },
+  
+  "images": [
+    {
+      "url": "image1"
+    },
+    {
+      "url": "image2"
+    }
+  ]
+}

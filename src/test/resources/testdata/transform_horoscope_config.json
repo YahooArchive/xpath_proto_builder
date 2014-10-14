@@ -1,0 +1,33 @@
+ {
+   "definitions": {
+     "rss_transform": {
+       "proto": "com.yahoo.xpathproto.horoscope.HoroscopeSnippetProtos$HoroscopeSnippet",
+       "transforms": [
+         { "path": "rss/channel/item[1]", "definition": "item_transform" }
+       ]
+     },
+
+     "item_transform": {
+       "transforms": [
+         { "field": "id" },
+         { "field": "sign" },
+         { "field": "label" },
+         { "field": "title" },
+         { "field": "link" },
+         { "field": "summary", "path": "description", "definition": "summary_transform" },
+         { "field": "extended_link", "path": "link" },
+         { "field": "author" },
+         { "field": "publish_date", "path": "pubDate" },
+         { "field": "ts_update", "handler": "com.yahoo.xpathproto.handler.TimeStampHandler" }
+       ]
+     },
+
+     "summary_transform": {
+       "proto": "com.yahoo.xpathproto.horoscope.HoroscopeSnippetProtos$Summary",
+       "transforms": [
+         { "field": "text", "path": "." }
+       ]
+     }
+
+   }
+ }

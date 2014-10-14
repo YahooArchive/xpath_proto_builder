@@ -1,0 +1,21 @@
+ package proto.horoscopesnippet;
+
+ option java_package = "com.yahoo.xpathproto.horoscope";
+ option java_outer_classname = "HoroscopeSnippetProtos";
+
+ message HoroscopeSnippet {
+  required string id = 1;
+  required string sign = 2;
+  required string label = 3;
+  required string title = 4;
+  required Summary summary = 5;
+  required string link = 6;
+  optional string extended_link = 7;
+  optional string author = 10;
+  required string publish_date = 11;
+  optional uint64 ts_update = 12;
+ }
+
+ message Summary {
+  required string text = 1;
+ }
