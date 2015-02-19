@@ -17,7 +17,7 @@ import com.yahoo.xpathproto.dataobject.Context;
  * support for repeated proto values. In case repeated fields are not supported, an UnsupportedOperationException can be
  * thrown in the method definition.
  */
-public interface ObjectToFieldHandler {
+public interface ObjectToFieldHandler extends CustomHandler {
 
     Object getProtoValue(JXPathContext context, Context vars, Config.Entry entry);
 
