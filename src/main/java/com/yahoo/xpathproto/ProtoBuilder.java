@@ -1,7 +1,6 @@
 /*
-Copyright 2014 Yahoo! Inc.
-Copyrights licensed under the BSD License. See the accompanying LICENSE file for terms.
-*/
+ * Copyright 2014 Yahoo! Inc. Copyrights licensed under the BSD License. See the accompanying LICENSE file for terms.
+ */
 
 package com.yahoo.xpathproto;
 
@@ -48,7 +47,7 @@ public class ProtoBuilder {
      * provided by the user and is picked up from the config file.
      *
      * @param builderConfig - The path to the config file for the corresponding json
-     * @param transform     - The transformation definition that should be used from the config file.
+     * @param transform - The transformation definition that should be used from the config file.
      */
     public ProtoBuilder(final String builderConfig, final String transform) {
         this(builderConfig, transform, null);
@@ -60,8 +59,8 @@ public class ProtoBuilder {
      * substitution.
      *
      * @param builderConfig - The path to the config file for the corresponding json
-     * @param transform     - The transformation definition that should be used from the config file.
-     * @param context       - The context object
+     * @param transform - The transformation definition that should be used from the config file.
+     * @param context - The context object
      */
     public ProtoBuilder(final String builderConfig, final String transform, final Context context) {
         this.builderConfig = builderConfig;
@@ -97,7 +96,7 @@ public class ProtoBuilder {
     }
 
     private <T extends Message.Builder> T transformUsing(final Context vars, final String configPath,
-                                                         final String definitionName) {
+                    final String definitionName) {
         Config config;
         try {
             config = configCache.get(configPath, new ConfigLoader(configPath));
@@ -108,8 +107,8 @@ public class ProtoBuilder {
         return (T) transformUsing(vars, config, new JXPathCopier(jXPathContext, null), definitionName);
     }
 
-    private static Message.Builder transformUsing(final Context vars, final Config config,
-                                                  JXPathCopier copier, final String definitionName) {
+    private static Message.Builder transformUsing(final Context vars, final Config config, JXPathCopier copier,
+                    final String definitionName) {
         Config.Definition definition = config.definitions.get(definitionName);
         if (null == definition) {
             throw new IllegalArgumentException("Cannot find transform definition: " + definitionName);
@@ -120,14 +119,14 @@ public class ProtoBuilder {
             copier = new JXPathCopier(copier.getSource(), target);
         } else if (copier.getTarget() == null) {
             throw new IllegalArgumentException("proto class must be specified at the top level definition name: "
-                                               + definitionName);
+                            + definitionName);
         }
 
         return applyTransforms(vars, config, copier, definition);
     }
 
     private static Message.Builder applyTransforms(final Context vars, final Config config, final JXPathCopier copier,
-                                                   final Config.Definition definition) {
+                    final Config.Definition definition) {
         for (Config.Entry transform : definition.getTransforms()) {
             if (transform.getDefinition() != null) {
                 transformUsingDefinition(vars, config, copier, transform);
@@ -152,12 +151,12 @@ public class ProtoBuilder {
         return copier.getTarget();
     }
 
-    private static void transformUsingDefinition(final Context vars, final Config config,
-                                                 final JXPathCopier copier, final Config.Entry transform) {
+    private static void transformUsingDefinition(final Context vars, final Config config, final JXPathCopier copier,
+                    final Config.Entry transform) {
         boolean isRepeated = false;
         if (transform.getField() != null) {
             Descriptors.FieldDescriptor fieldDescriptor =
-                copier.getTarget().getDescriptorForType().findFieldByName(transform.getField());
+                            copier.getTarget().getDescriptorForType().findFieldByName(transform.getField());
             if (null == fieldDescriptor) {
                 throw new RuntimeException("Unknown target field in protobuf: " + transform.getField());
             }
@@ -198,10 +197,10 @@ public class ProtoBuilder {
         }
     }
 
-    private static void transformUsingHandler(final Context vars, final Config config,
-                                              final JXPathCopier copier, final Config.Entry transform) {
+    private static void transformUsingHandler(final Context vars, final Config config, final JXPathCopier copier,
+                    final Config.Entry transform) {
         Descriptors.FieldDescriptor fieldDescriptor =
-            copier.getTarget().getDescriptorForType().findFieldByName(transform.getField());
+                        copier.getTarget().getDescriptorForType().findFieldByName(transform.getField());
         if (null == fieldDescriptor) {
             throw new RuntimeException("Unknown target field in protobuf: " + transform.getField());
         }
@@ -215,22 +214,19 @@ public class ProtoBuilder {
         }
 
         if (handler instanceof ObjectToFieldHandler) {
-            invokeFieldHandler(vars, copier, transform, fieldDescriptor, context,
-                               (ObjectToFieldHandler) handler);
+            invokeFieldHandler(vars, copier, transform, fieldDescriptor, context, (ObjectToFieldHandler) handler);
         } else if (handler instanceof ObjectToProtoHandler) {
-            invokeProtoHandler(vars, copier, transform, fieldDescriptor, context,
-                               (ObjectToProtoHandler) handler);
+            invokeProtoHandler(vars, copier, transform, fieldDescriptor, context, (ObjectToProtoHandler) handler);
         } else {
             throw new RuntimeException(
-                "Handler must implement one of the ObjectToProtoHandler or ObjectFieldHandler interface: "
-                + transform.getHandler());
+                            "Handler must implement one of the ObjectToProtoHandler or ObjectFieldHandler interface: "
+                                            + transform.getHandler());
         }
     }
 
     private static void invokeProtoHandler(final Context vars, final JXPathCopier copier, final Config.Entry transform,
-                                           final Descriptors.FieldDescriptor fieldDescriptor,
-                                           final JXPathContext context,
-                                           final ObjectToProtoHandler handler) {
+                    final Descriptors.FieldDescriptor fieldDescriptor, final JXPathContext context,
+                    final ObjectToProtoHandler handler) {
         if (fieldDescriptor.isRepeated()) {
             List<Message.Builder> builders = handler.getRepeatedProtoBuilder(context, vars, transform);
             for (Message.Builder builder : builders) {
@@ -245,9 +241,8 @@ public class ProtoBuilder {
     }
 
     private static void invokeFieldHandler(final Context vars, final JXPathCopier copier, final Config.Entry transform,
-                                           final Descriptors.FieldDescriptor fieldDescriptor,
-                                           final JXPathContext context,
-                                           final ObjectToFieldHandler handler) {
+                    final Descriptors.FieldDescriptor fieldDescriptor, final JXPathContext context,
+                    final ObjectToFieldHandler handler) {
         if (fieldDescriptor.isRepeated()) {
             List<Object> values = handler.getRepeatedProtoValue(context, vars, transform);
             for (Object value : values) {
