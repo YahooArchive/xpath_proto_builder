@@ -12,7 +12,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
@@ -31,6 +35,11 @@ public class ProtoBuilder {
     private final String builderConfig;
     private final String transform;
     private JXPathContext jXPathContext;
+    
+    private static final Map<String, Config> configs = new ConcurrentHashMap<>();
+    private static final Map<String, CustomHandler> handlers = new ConcurrentHashMap<>();
+    private static final Map<String, Message> defaultInstances = new ConcurrentHashMap<>();
+    private static final ObjectMapper mapper = new ObjectMapper();
 
     /**
      * Instantiates a new proto builder from the config file provided by the user. The default transformation definition
@@ -206,13 +215,9 @@ public class ProtoBuilder {
         }
 
         JXPathContext context = copier.getSource();
-        Object handler = null;
-        try {
-            handler = Class.forName(transform.getHandler()).newInstance();
-        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
-            throw new RuntimeException("Failed to create the handler: " + transform.getHandler(), e);
-        }
 
+        CustomHandler handler = createHandler(transform.getHandler());
+        
         if (handler instanceof ObjectToFieldHandler) {
             invokeFieldHandler(vars, copier, transform, fieldDescriptor, context, (ObjectToFieldHandler) handler);
         } else if (handler instanceof ObjectToProtoHandler) {
@@ -255,16 +260,32 @@ public class ProtoBuilder {
             copier.copyObject(value, transform.getField());
         }
     }
+    
+    private static CustomHandler createHandler(String className) {
+        CustomHandler handler = handlers.get(className);
+        if (null == handler) {
+            try {
+                handler = (CustomHandler) Class.forName(className).newInstance();
+                handlers.put(className, handler) ;
+            } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+                throw new RuntimeException("Failed to create the handler: " + className, e);
+            }
+        }
+
+        return handler;
+    }
 
     private static Message.Builder createMessageBuilder(final String className) {
+        Message defaultInstance = defaultInstances.get(className);
         try {
             Class messageClass = Class.forName(className);
             Method getDefaultInstanceMethod = messageClass.getMethod("getDefaultInstance", (Class[]) null);
-            Message message = (Message) getDefaultInstanceMethod.invoke((Object[]) null, (Object[]) null);
-            Message.Builder builder = message.newBuilderForType();
-            return builder;
+            defaultInstance = (Message) getDefaultInstanceMethod.invoke((Object[]) null, (Object[]) null);
+            defaultInstances.put(className, defaultInstance);
         } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             throw new RuntimeException(e);
         }
+        
+        return defaultInstance.newBuilderForType();
     }
 }
