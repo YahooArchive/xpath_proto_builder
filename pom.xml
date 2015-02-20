@@ -9,7 +9,36 @@
     <packaging>jar</packaging>
 
     <name>xpathproto</name>
+    <description>A library to convert objects (JSON, XML, POJO) into protobuf using xpath notation</description>
     <url>https://github.com/yahoo/xpath_proto_builder</url>
+    
+    <licenses>
+        <license>
+            <name>BSD License 3 Clause</name>
+            <url>http://www.opensource.org/licenses/BSD-3-Clause</url>
+        </license>
+    </licenses>
+    
+    <developers>
+        <developer>
+            <name>Sushant Kumar</name>
+            <email>sushantk@yahoo-inc.com</email>
+            <organization>Yahoo! Inc.</organization>
+            <organizationUrl>www.yahoo.com</organizationUrl>
+        </developer>
+        <developer>
+            <name>Yash Parikh</name>
+            <email>yparikh@yahoo-inc.com</email>
+            <organization>Yahoo! Inc.</organization>
+            <organizationUrl>www.yahoo.com</organizationUrl>
+        </developer>
+    </developers>
+    
+    <scm>
+        <connection>scm:git:git@github.com:yahoo/xpath_proto_builder.git</connection>
+        <developerConnection>scm:git:git@github.com:yahoo/xpath_proto_builder.git</developerConnection>
+        <url>git@github.com:yahoo/xpath_proto_builder.git</url>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
