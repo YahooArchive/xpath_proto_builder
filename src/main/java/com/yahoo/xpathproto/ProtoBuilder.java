@@ -303,13 +303,13 @@ public class ProtoBuilder {
             copier.copyObject(value, transform.getField());
         }
     }
-    
+
     private static CustomHandler createHandler(String className) {
         CustomHandler handler = handlers.get(className);
         if (null == handler) {
             try {
                 handler = (CustomHandler) Class.forName(className).newInstance();
-                handlers.put(className, handler) ;
+                handlers.put(className, handler);
             } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
                 throw new RuntimeException("Failed to create the handler: " + className, e);
             }
@@ -328,7 +328,6 @@ public class ProtoBuilder {
         } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             throw new RuntimeException(e);
         }
-        
         return defaultInstance.newBuilderForType();
     }
 }
