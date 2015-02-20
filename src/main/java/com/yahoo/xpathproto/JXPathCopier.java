@@ -12,6 +12,8 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Iterator;
 
+import com.google.protobuf.WireFormat.FieldType;
+
 import com.google.protobuf.Descriptors;
 import com.google.protobuf.Message.Builder;
 
@@ -82,7 +84,8 @@ public class JXPathCopier {
     }
 
     public JXPathCopier copyScalarObject(Object sourceObject, String targetField,
-                                         Descriptors.FieldDescriptor.JavaType javaType) {
+                                         Descriptors.FieldDescriptor fieldDescriptor) {
+        Descriptors.FieldDescriptor.JavaType javaType = fieldDescriptor.getJavaType();
         switch (javaType) {
             case INT:
                 copyAsInteger(sourceObject, targetField);
@@ -105,7 +108,8 @@ public class JXPathCopier {
             case BYTE_STRING:
                 throw new RuntimeException("bytes type not handled for field: " + targetField);
             case ENUM:
-                throw new RuntimeException("enum type not handled: " + targetField);
+                copyAsEnum(sourceObject, targetField, fieldDescriptor);
+                break;
             case MESSAGE:
                 throw new RuntimeException("Protobuf Message type not handled: " + targetField);
         }
@@ -125,11 +129,11 @@ public class JXPathCopier {
             Iterator iterator = source.iterate(sourcePath);
             while (iterator.hasNext()) {
                 Object value = iterator.next();
-                copyScalarObject(value, targetField, javaType);
+                copyScalarObject(value, targetField, fieldDescriptor);
             }
         } else {
             Object value = source.getValue(sourcePath);
-            copyScalarObject(value, targetField, javaType);
+            copyScalarObject(value, targetField, fieldDescriptor);
         }
 
         return this;
@@ -153,6 +157,15 @@ public class JXPathCopier {
             setTargetField(target, sourceObject.toString(), targetField);
         }
 
+        return this;
+    }
+    
+    public JXPathCopier copyAsEnum(Object sourceObject, String targetField, Descriptors.FieldDescriptor fieldDescriptor) {
+        String enumName = sourceObject.toString();
+        Object value = fieldDescriptor.getEnumType().findValueByName(enumName);
+        if (value != null) {
+            setTargetField(target, value, targetField);
+        }
         return this;
     }
 

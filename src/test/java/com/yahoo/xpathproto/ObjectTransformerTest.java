@@ -12,6 +12,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Map;
 
+import com.yahoo.xpathproto.TransformTestProtos.MessageEnum;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yahoo.xpathproto.handler.RfcTimestampHandler;
 
@@ -44,6 +46,9 @@ public class ObjectTransformerTest {
             .addStrValues("v2")
             .setNested("select/nested")
             .setTsUpdate(builder.getTsUpdate())
+            .setEnumValue(MessageEnum.FIRST)
+            .setConstantValue("constant")
+            .setVarValue("var_value")
             .setImageByTransform(
                 TransformTestProtos.ContentImage.newBuilder().setUrl("foo").setHeight(100)
                     .setWidth(100))

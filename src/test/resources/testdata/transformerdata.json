@@ -8,6 +8,7 @@
   "long_value": 1000,
   "bool_value": true,
 
+  "enum_value": "FIRST",
   "str_values": ["v1", "v2"],
 
   "select": {

@@ -19,7 +19,7 @@ import com.google.protobuf.Message;
  * repeated proto values. In case repeated fields are not supported, an UnsupportedOperationException can be thrown in
  * the method definition.
  */
-public interface ObjectToProtoHandler {
+public interface ObjectToProtoHandler extends CustomHandler {
 
     Message.Builder getProtoBuilder(JXPathContext context, Context vars, Config.Entry entry);
 
