@@ -47,6 +47,7 @@ public class ObjectTransformerTest {
             .setNested("select/nested")
             .setTsUpdate(builder.getTsUpdate())
             .setEnumValue(MessageEnum.FIRST)
+            .setConstantValue("constant")
             .setImageByTransform(
                 TransformTestProtos.ContentImage.newBuilder().setUrl("foo").setHeight(100)
                     .setWidth(100))

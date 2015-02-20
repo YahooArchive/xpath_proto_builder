@@ -13,6 +13,7 @@
           { "field": "enum_value" },
           { "field": "str_values" },
           { "path": "select", "definition": "select_transform" },
+          { "field": "constant_value", "path": "string('constant')" },
           { "field": "image_by_transform", "definition": "image_transform", "path": "image" },
           { "field": "ts_update", "handler": "com.yahoo.xpathproto.handler.TimeStampHandler" },
           { "field": "image_by_transform", "path": "image", "definition": "image_transform" },

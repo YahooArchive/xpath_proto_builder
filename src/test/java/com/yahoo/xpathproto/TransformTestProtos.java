@@ -339,6 +339,21 @@ public final class TransformTestProtos {
      */
     com.yahoo.xpathproto.TransformTestProtos.ContentImageOrBuilder getImagesByHandlerOrBuilder(
         int index);
+
+    // required string constant_value = 17;
+    /**
+     * <code>required string constant_value = 17;</code>
+     */
+    boolean hasConstantValue();
+    /**
+     * <code>required string constant_value = 17;</code>
+     */
+    java.lang.String getConstantValue();
+    /**
+     * <code>required string constant_value = 17;</code>
+     */
+    com.google.protobuf.ByteString
+        getConstantValueBytes();
   }
   /**
    * Protobuf type {@code proto.transform_test.TransformedMessage}
@@ -500,6 +515,11 @@ public final class TransformTestProtos {
                 bitField0_ |= 0x00000100;
                 enumValue_ = value;
               }
+              break;
+            }
+            case 138: {
+              bitField0_ |= 0x00002000;
+              constantValue_ = input.readBytes();
               break;
             }
           }
@@ -1035,6 +1055,49 @@ public final class TransformTestProtos {
       return imagesByHandler_.get(index);
     }
 
+    // required string constant_value = 17;
+    public static final int CONSTANT_VALUE_FIELD_NUMBER = 17;
+    private java.lang.Object constantValue_;
+    /**
+     * <code>required string constant_value = 17;</code>
+     */
+    public boolean hasConstantValue() {
+      return ((bitField0_ & 0x00002000) == 0x00002000);
+    }
+    /**
+     * <code>required string constant_value = 17;</code>
+     */
+    public java.lang.String getConstantValue() {
+      java.lang.Object ref = constantValue_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          constantValue_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string constant_value = 17;</code>
+     */
+    public com.google.protobuf.ByteString
+        getConstantValueBytes() {
+      java.lang.Object ref = constantValue_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        constantValue_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private void initFields() {
       src_ = "";
       varSrc_ = "";
@@ -1052,6 +1115,7 @@ public final class TransformTestProtos {
       imagesByTransform_ = java.util.Collections.emptyList();
       imageByHandler_ = com.yahoo.xpathproto.TransformTestProtos.ContentImage.getDefaultInstance();
       imagesByHandler_ = java.util.Collections.emptyList();
+      constantValue_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1091,6 +1155,10 @@ public final class TransformTestProtos {
         return false;
       }
       if (!hasTsUpdate()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasConstantValue()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -1173,6 +1241,9 @@ public final class TransformTestProtos {
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         output.writeEnum(16, enumValue_.getNumber());
       }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        output.writeBytes(17, getConstantValueBytes());
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -1250,6 +1321,10 @@ public final class TransformTestProtos {
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(16, enumValue_.getNumber());
+      }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(17, getConstantValueBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1419,6 +1494,8 @@ public final class TransformTestProtos {
         } else {
           imagesByHandlerBuilder_.clear();
         }
+        constantValue_ = "";
+        bitField0_ = (bitField0_ & ~0x00010000);
         return this;
       }
 
@@ -1531,6 +1608,10 @@ public final class TransformTestProtos {
         } else {
           result.imagesByHandler_ = imagesByHandlerBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00010000) == 0x00010000)) {
+          to_bitField0_ |= 0x00002000;
+        }
+        result.constantValue_ = constantValue_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1660,6 +1741,11 @@ public final class TransformTestProtos {
             }
           }
         }
+        if (other.hasConstantValue()) {
+          bitField0_ |= 0x00010000;
+          constantValue_ = other.constantValue_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -1698,6 +1784,10 @@ public final class TransformTestProtos {
           return false;
         }
         if (!hasTsUpdate()) {
+          
+          return false;
+        }
+        if (!hasConstantValue()) {
           
           return false;
         }
@@ -3166,6 +3256,80 @@ public final class TransformTestProtos {
         return imagesByHandlerBuilder_;
       }
 
+      // required string constant_value = 17;
+      private java.lang.Object constantValue_ = "";
+      /**
+       * <code>required string constant_value = 17;</code>
+       */
+      public boolean hasConstantValue() {
+        return ((bitField0_ & 0x00010000) == 0x00010000);
+      }
+      /**
+       * <code>required string constant_value = 17;</code>
+       */
+      public java.lang.String getConstantValue() {
+        java.lang.Object ref = constantValue_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          constantValue_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string constant_value = 17;</code>
+       */
+      public com.google.protobuf.ByteString
+          getConstantValueBytes() {
+        java.lang.Object ref = constantValue_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          constantValue_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string constant_value = 17;</code>
+       */
+      public Builder setConstantValue(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00010000;
+        constantValue_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string constant_value = 17;</code>
+       */
+      public Builder clearConstantValue() {
+        bitField0_ = (bitField0_ & ~0x00010000);
+        constantValue_ = getDefaultInstance().getConstantValue();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string constant_value = 17;</code>
+       */
+      public Builder setConstantValueBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00010000;
+        constantValue_ = value;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:proto.transform_test.TransformedMessage)
     }
 
@@ -3994,7 +4158,7 @@ public final class TransformTestProtos {
   static {
     java.lang.String[] descriptorData = {
       "\n\024transform_test.proto\022\024proto.transform_" +
-      "test\"\231\004\n\022TransformedMessage\022\013\n\003src\030\001 \002(\t" +
+      "test\"\261\004\n\022TransformedMessage\022\013\n\003src\030\001 \002(\t" +
       "\022\017\n\007var_src\030\002 \002(\t\022\020\n\010src_path\030\003 \002(\t\022\024\n\014s" +
       "tring_value\030\004 \002(\t\022\021\n\tint_value\030\005 \002(\005\022\022\n\n" +
       "long_value\030\006 \002(\003\022\022\n\nbool_value\030\007 \002(\010\022\022\n\n" +
@@ -4007,11 +4171,12 @@ public final class TransformTestProtos {
       "m_test.ContentImage\022<\n\020image_by_handler\030" +
       "\016 \001(\0132\".proto.transform_test.ContentImag" +
       "e\022=\n\021images_by_handler\030\017 \003(\0132\".proto.tra" +
-      "nsform_test.ContentImage\"H\n\014ContentImage" +
-      "\022\013\n\003url\030\001 \002(\t\022\014\n\004type\030\002 \001(\t\022\r\n\005width\030\005 \001" +
-      "(\r\022\016\n\006height\030\006 \001(\r*/\n\013MessageEnum\022\t\n\005FIR" +
-      "ST\020\001\022\n\n\006SECOND\020\002\022\t\n\005THIRD\020\003B+\n\024com.yahoo" +
-      ".xpathprotoB\023TransformTestProtos"
+      "nsform_test.ContentImage\022\026\n\016constant_val" +
+      "ue\030\021 \002(\t\"H\n\014ContentImage\022\013\n\003url\030\001 \002(\t\022\014\n" +
+      "\004type\030\002 \001(\t\022\r\n\005width\030\005 \001(\r\022\016\n\006height\030\006 \001" +
+      "(\r*/\n\013MessageEnum\022\t\n\005FIRST\020\001\022\n\n\006SECOND\020\002" +
+      "\022\t\n\005THIRD\020\003B+\n\024com.yahoo.xpathprotoB\023Tra" +
+      "nsformTestProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -4023,7 +4188,7 @@ public final class TransformTestProtos {
           internal_static_proto_transform_test_TransformedMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_proto_transform_test_TransformedMessage_descriptor,
-              new java.lang.String[] { "Src", "VarSrc", "SrcPath", "StringValue", "IntValue", "LongValue", "BoolValue", "StrValues", "Nested", "EnumValue", "TsUpdate", "OptionalValue", "ImageByTransform", "ImagesByTransform", "ImageByHandler", "ImagesByHandler", });
+              new java.lang.String[] { "Src", "VarSrc", "SrcPath", "StringValue", "IntValue", "LongValue", "BoolValue", "StrValues", "Nested", "EnumValue", "TsUpdate", "OptionalValue", "ImageByTransform", "ImagesByTransform", "ImageByHandler", "ImagesByHandler", "ConstantValue", });
           internal_static_proto_transform_test_ContentImage_descriptor =
             getDescriptor().getMessageTypes().get(1);
           internal_static_proto_transform_test_ContentImage_fieldAccessorTable = new
