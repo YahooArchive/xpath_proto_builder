@@ -3,6 +3,13 @@ package proto.transform_test;
 option java_package = "com.yahoo.xpathproto";
 option java_outer_classname = "TransformTestProtos";
 
+
+enum MessageEnum {
+	FIRST = 1;
+	SECOND = 2;
+	THIRD = 3;
+}
+
 message TransformedMessage {
     required string src = 1;
     required string var_src = 2;
@@ -15,6 +22,7 @@ message TransformedMessage {
     repeated string str_values = 8;
 
     required string nested = 9;
+    optional MessageEnum enum_value = 16;
 
 	required int64 ts_update = 10;
     optional string optional_value = 11;

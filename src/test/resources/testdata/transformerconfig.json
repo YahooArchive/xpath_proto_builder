@@ -10,6 +10,7 @@
           { "field": "int_value" },
           { "field": "long_value" },
           { "field": "bool_value" },
+          { "field": "enum_value" },
           { "field": "str_values" },
           { "path": "select", "definition": "select_transform" },
           { "field": "image_by_transform", "definition": "image_transform", "path": "image" },
