@@ -1,3 +1,8 @@
+/*
+Copyright 2014 Yahoo! Inc.
+Copyrights licensed under the BSD License. See the accompanying LICENSE file for terms.
+*/
+
 package com.yahoo.xpathproto;
 
 import java.util.List;
