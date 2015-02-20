@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.protobuf.Descriptors;
@@ -210,24 +210,65 @@ public class ProtoBuilder {
 
     private static void transformUsingHandler(final Context vars, final Config config, final JXPathCopier copier,
                     final Config.Entry transform) {
-        Descriptors.FieldDescriptor fieldDescriptor =
-                        copier.getTarget().getDescriptorForType().findFieldByName(transform.getField());
-        if (null == fieldDescriptor) {
-            throw new RuntimeException("Unknown target field in protobuf: " + transform.getField());
-        }
-
         JXPathContext context = copier.getSource();
-
         CustomHandler handler = createHandler(transform.getHandler());
         
+        Descriptors.FieldDescriptor fieldDescriptor = null;
+        
+        if (transform.getField() != null) {
+            fieldDescriptor = copier.getTarget().getDescriptorForType().findFieldByName(transform.getField());
+            if (null == fieldDescriptor) {
+                throw new RuntimeException("Unknown target field in protobuf: " + transform.getField());
+            }
+        }
+        
+        Object handlerValue = null;
+        
         if (handler instanceof ObjectToFieldHandler) {
-            invokeFieldHandler(vars, copier, transform, fieldDescriptor, context, (ObjectToFieldHandler) handler);
+            ObjectToFieldHandler fieldHandler = (ObjectToFieldHandler) handler;
+            if (fieldDescriptor != null && fieldDescriptor.isRepeated()) {
+                List<Object> values = fieldHandler.getRepeatedProtoValue(context, vars, transform);
+                handlerValue = values;
+                for (Object value : values) {
+                    if (value != null) {
+                        copier.copyObject(value, transform.getField());
+                    }
+                }
+            } else {
+                Object value = fieldHandler.getProtoValue(context, vars, transform);
+                if(fieldDescriptor != null) {
+                    copier.copyObject(value, transform.getField());
+                }
+                handlerValue = value;
+            }
         } else if (handler instanceof ObjectToProtoHandler) {
-            invokeProtoHandler(vars, copier, transform, fieldDescriptor, context, (ObjectToProtoHandler) handler);
+            ObjectToProtoHandler protoHandler = (ObjectToProtoHandler) handler;
+            if (fieldDescriptor != null && fieldDescriptor.isRepeated()) {
+                List<Message.Builder> builders = protoHandler.getRepeatedProtoBuilder(context, vars, transform);
+                List<Message> messages = new ArrayList<Message>();
+                for (Message.Builder builder : builders) {
+                    Message msg = builder.build();
+                    messages.add(msg);
+                    copier.copyObject(msg, transform.getField());
+                }
+                handlerValue = messages;
+            } else {
+                Message.Builder builder = protoHandler.getProtoBuilder(context, vars, transform);
+                if (builder != null) {
+                    Message msg = builder.build();
+                    handlerValue = msg;
+                    if(fieldDescriptor != null) {
+                        copier.copyObject(msg, transform.getField());
+                    }
+                }
+            }
         } else {
             throw new RuntimeException(
                             "Handler must implement one of the ObjectToProtoHandler or ObjectFieldHandler interface: "
                                             + transform.getHandler());
+        }
+        if(transform.getVariable() != null && handlerValue != null) {
+            vars.setValue(transform.getVariable(), handlerValue);
         }
     }
 
