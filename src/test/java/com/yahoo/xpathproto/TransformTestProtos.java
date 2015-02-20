@@ -354,6 +354,21 @@ public final class TransformTestProtos {
      */
     com.google.protobuf.ByteString
         getConstantValueBytes();
+
+    // required string var_value = 18;
+    /**
+     * <code>required string var_value = 18;</code>
+     */
+    boolean hasVarValue();
+    /**
+     * <code>required string var_value = 18;</code>
+     */
+    java.lang.String getVarValue();
+    /**
+     * <code>required string var_value = 18;</code>
+     */
+    com.google.protobuf.ByteString
+        getVarValueBytes();
   }
   /**
    * Protobuf type {@code proto.transform_test.TransformedMessage}
@@ -520,6 +535,11 @@ public final class TransformTestProtos {
             case 138: {
               bitField0_ |= 0x00002000;
               constantValue_ = input.readBytes();
+              break;
+            }
+            case 146: {
+              bitField0_ |= 0x00004000;
+              varValue_ = input.readBytes();
               break;
             }
           }
@@ -1098,6 +1118,49 @@ public final class TransformTestProtos {
       }
     }
 
+    // required string var_value = 18;
+    public static final int VAR_VALUE_FIELD_NUMBER = 18;
+    private java.lang.Object varValue_;
+    /**
+     * <code>required string var_value = 18;</code>
+     */
+    public boolean hasVarValue() {
+      return ((bitField0_ & 0x00004000) == 0x00004000);
+    }
+    /**
+     * <code>required string var_value = 18;</code>
+     */
+    public java.lang.String getVarValue() {
+      java.lang.Object ref = varValue_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          varValue_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string var_value = 18;</code>
+     */
+    public com.google.protobuf.ByteString
+        getVarValueBytes() {
+      java.lang.Object ref = varValue_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        varValue_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private void initFields() {
       src_ = "";
       varSrc_ = "";
@@ -1116,6 +1179,7 @@ public final class TransformTestProtos {
       imageByHandler_ = com.yahoo.xpathproto.TransformTestProtos.ContentImage.getDefaultInstance();
       imagesByHandler_ = java.util.Collections.emptyList();
       constantValue_ = "";
+      varValue_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1159,6 +1223,10 @@ public final class TransformTestProtos {
         return false;
       }
       if (!hasConstantValue()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasVarValue()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -1244,6 +1312,9 @@ public final class TransformTestProtos {
       if (((bitField0_ & 0x00002000) == 0x00002000)) {
         output.writeBytes(17, getConstantValueBytes());
       }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        output.writeBytes(18, getVarValueBytes());
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -1325,6 +1396,10 @@ public final class TransformTestProtos {
       if (((bitField0_ & 0x00002000) == 0x00002000)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(17, getConstantValueBytes());
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(18, getVarValueBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1496,6 +1571,8 @@ public final class TransformTestProtos {
         }
         constantValue_ = "";
         bitField0_ = (bitField0_ & ~0x00010000);
+        varValue_ = "";
+        bitField0_ = (bitField0_ & ~0x00020000);
         return this;
       }
 
@@ -1612,6 +1689,10 @@ public final class TransformTestProtos {
           to_bitField0_ |= 0x00002000;
         }
         result.constantValue_ = constantValue_;
+        if (((from_bitField0_ & 0x00020000) == 0x00020000)) {
+          to_bitField0_ |= 0x00004000;
+        }
+        result.varValue_ = varValue_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1746,6 +1827,11 @@ public final class TransformTestProtos {
           constantValue_ = other.constantValue_;
           onChanged();
         }
+        if (other.hasVarValue()) {
+          bitField0_ |= 0x00020000;
+          varValue_ = other.varValue_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -1788,6 +1874,10 @@ public final class TransformTestProtos {
           return false;
         }
         if (!hasConstantValue()) {
+          
+          return false;
+        }
+        if (!hasVarValue()) {
           
           return false;
         }
@@ -3330,6 +3420,80 @@ public final class TransformTestProtos {
         return this;
       }
 
+      // required string var_value = 18;
+      private java.lang.Object varValue_ = "";
+      /**
+       * <code>required string var_value = 18;</code>
+       */
+      public boolean hasVarValue() {
+        return ((bitField0_ & 0x00020000) == 0x00020000);
+      }
+      /**
+       * <code>required string var_value = 18;</code>
+       */
+      public java.lang.String getVarValue() {
+        java.lang.Object ref = varValue_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          varValue_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string var_value = 18;</code>
+       */
+      public com.google.protobuf.ByteString
+          getVarValueBytes() {
+        java.lang.Object ref = varValue_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          varValue_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string var_value = 18;</code>
+       */
+      public Builder setVarValue(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00020000;
+        varValue_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string var_value = 18;</code>
+       */
+      public Builder clearVarValue() {
+        bitField0_ = (bitField0_ & ~0x00020000);
+        varValue_ = getDefaultInstance().getVarValue();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string var_value = 18;</code>
+       */
+      public Builder setVarValueBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00020000;
+        varValue_ = value;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:proto.transform_test.TransformedMessage)
     }
 
@@ -4158,7 +4322,7 @@ public final class TransformTestProtos {
   static {
     java.lang.String[] descriptorData = {
       "\n\024transform_test.proto\022\024proto.transform_" +
-      "test\"\261\004\n\022TransformedMessage\022\013\n\003src\030\001 \002(\t" +
+      "test\"\304\004\n\022TransformedMessage\022\013\n\003src\030\001 \002(\t" +
       "\022\017\n\007var_src\030\002 \002(\t\022\020\n\010src_path\030\003 \002(\t\022\024\n\014s" +
       "tring_value\030\004 \002(\t\022\021\n\tint_value\030\005 \002(\005\022\022\n\n" +
       "long_value\030\006 \002(\003\022\022\n\nbool_value\030\007 \002(\010\022\022\n\n" +
@@ -4172,11 +4336,11 @@ public final class TransformTestProtos {
       "\016 \001(\0132\".proto.transform_test.ContentImag" +
       "e\022=\n\021images_by_handler\030\017 \003(\0132\".proto.tra" +
       "nsform_test.ContentImage\022\026\n\016constant_val" +
-      "ue\030\021 \002(\t\"H\n\014ContentImage\022\013\n\003url\030\001 \002(\t\022\014\n" +
-      "\004type\030\002 \001(\t\022\r\n\005width\030\005 \001(\r\022\016\n\006height\030\006 \001" +
-      "(\r*/\n\013MessageEnum\022\t\n\005FIRST\020\001\022\n\n\006SECOND\020\002" +
-      "\022\t\n\005THIRD\020\003B+\n\024com.yahoo.xpathprotoB\023Tra" +
-      "nsformTestProtos"
+      "ue\030\021 \002(\t\022\021\n\tvar_value\030\022 \002(\t\"H\n\014ContentIm" +
+      "age\022\013\n\003url\030\001 \002(\t\022\014\n\004type\030\002 \001(\t\022\r\n\005width\030" +
+      "\005 \001(\r\022\016\n\006height\030\006 \001(\r*/\n\013MessageEnum\022\t\n\005" +
+      "FIRST\020\001\022\n\n\006SECOND\020\002\022\t\n\005THIRD\020\003B+\n\024com.ya" +
+      "hoo.xpathprotoB\023TransformTestProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -4188,7 +4352,7 @@ public final class TransformTestProtos {
           internal_static_proto_transform_test_TransformedMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_proto_transform_test_TransformedMessage_descriptor,
-              new java.lang.String[] { "Src", "VarSrc", "SrcPath", "StringValue", "IntValue", "LongValue", "BoolValue", "StrValues", "Nested", "EnumValue", "TsUpdate", "OptionalValue", "ImageByTransform", "ImagesByTransform", "ImageByHandler", "ImagesByHandler", "ConstantValue", });
+              new java.lang.String[] { "Src", "VarSrc", "SrcPath", "StringValue", "IntValue", "LongValue", "BoolValue", "StrValues", "Nested", "EnumValue", "TsUpdate", "OptionalValue", "ImageByTransform", "ImagesByTransform", "ImageByHandler", "ImagesByHandler", "ConstantValue", "VarValue", });
           internal_static_proto_transform_test_ContentImage_descriptor =
             getDescriptor().getMessageTypes().get(1);
           internal_static_proto_transform_test_ContentImage_fieldAccessorTable = new

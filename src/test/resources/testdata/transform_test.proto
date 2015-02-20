@@ -34,6 +34,7 @@ message TransformedMessage {
     repeated ContentImage images_by_handler = 15;
     
     required string constant_value = 17;
+    required string var_value = 18;
 }
 
 message ContentImage {

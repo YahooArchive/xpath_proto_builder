@@ -48,6 +48,7 @@ public class ObjectTransformerTest {
             .setTsUpdate(builder.getTsUpdate())
             .setEnumValue(MessageEnum.FIRST)
             .setConstantValue("constant")
+            .setVarValue("var_value")
             .setImageByTransform(
                 TransformTestProtos.ContentImage.newBuilder().setUrl("foo").setHeight(100)
                     .setWidth(100))

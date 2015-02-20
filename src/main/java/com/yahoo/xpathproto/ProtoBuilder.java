@@ -148,7 +148,9 @@ public class ProtoBuilder {
                         copier.copyObject(value, transform.getField());
                     }
                 } else {
-                    copier.copyAsScalar(transform.getPath(), transform.getField());
+                    if (transform.getField() != null) {
+                        copier.copyAsScalar(transform.getPath(), transform.getField());                        
+                    }
                 }
 
                 if (transform.getVariable() != null) {
