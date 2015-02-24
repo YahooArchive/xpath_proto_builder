@@ -5,6 +5,24 @@ xpath_proto_builder is a library to convert objects (JSON, XML, POJO) into proto
 
 This code is licensed under the BSD license.
 
+How to get the Library
+----------------------
+The library is hosted on public Maven central and can be used by simply adding the dependency to your pom file.
+Add the following lines to your pom file:
+   ```xml
+   <dependencies>
+   ...
+   ...
+      <dependency>
+         <groupId>com.yahoo.xpathproto</groupId>
+         <artifactId>xpathproto</artifactId>
+         <version>0.1.0</version>
+      </dependency>
+   ...
+   ...
+   </dependencies>
+   ```
+
 Usage
 -----
 
