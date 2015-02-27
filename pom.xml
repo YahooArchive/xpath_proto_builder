@@ -4,7 +4,7 @@
 
     <groupId>com.yahoo.xpathproto</groupId>
     <artifactId>xpathproto</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>xpathproto</name>
@@ -37,7 +37,7 @@
         <connection>scm:git:git@github.com:yahoo/xpath_proto_builder.git</connection>
         <developerConnection>scm:git:git@github.com:yahoo/xpath_proto_builder.git</developerConnection>
         <url>git@github.com:yahoo/xpath_proto_builder.git</url>
-      <tag>xpathproto-0.1.0</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <properties>
