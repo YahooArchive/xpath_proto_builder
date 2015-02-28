@@ -1,0 +1,21 @@
+<settings>
+  <profiles>
+    <profile>
+      <id>ossrh</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <gpg.executable>gpg2</gpg.executable>
+        <gpg.passphrase>${env.GPG_PASSWORD}</gpg.passphrase>
+      </properties>
+    </profile>
+  </profiles>
+  <servers>
+    <server>
+      <id>ossrh</id>
+      <username>${env.USER_ID}</username>
+      <password>${env.USER_PASSWORD}</password>
+    </server>
+  </servers>
+</settings>
