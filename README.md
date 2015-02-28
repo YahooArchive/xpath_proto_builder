@@ -16,7 +16,7 @@ Add the following lines to your pom file:
       <dependency>
          <groupId>com.yahoo.xpathproto</groupId>
          <artifactId>xpathproto</artifactId>
-         <version>[0.1.0,)</version>
+         <version>0.1.1</version>
       </dependency>
    ...
    ...
