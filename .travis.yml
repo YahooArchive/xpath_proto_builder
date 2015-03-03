@@ -7,8 +7,12 @@ env:
         - secure: "OvB4Ev/6vnVhuQWzjPwnJmT4vY2LL0xdf5RVbRo5n620KyvyOvUjdeoQIQY8glkDCo97mwaheFXQZ7mclgPa+N6UKWAP0NrhGENAxf6rTYUVj+JOhqGcTKXvpSOn1Ce2sxTD3DUtVXTqQSOPzyFj5VPAQG1uERd0gUgu+5SDK3c="
 
 before_install:
-    - openssl aes-256-cbc -pass pass:$GPG_PASSWORD -in secring.gpg.enc -out local.secring.gpg -d
-    - openssl aes-256-cbc -pass pass:$GPG_PASSWORD -in pubring.gpg.enc -out local.pubring.gpg -d
+    - openssl aes-256-cbc -pass pass:$GPG_PASSWORD -in secring.gpg.enc -out secring.gpg -d
+    - openssl aes-256-cbc -pass pass:$GPG_PASSWORD -in pubring.gpg.enc -out pubring.gpg -d
+    - mkdir ~/.gnupg
+    - cp secring.gpg ~/.gnupg
+    - cp pubring.gpg ~/.gnupg
+    - apt-get install gnupg2
 
 script:
     - mvn clean install
