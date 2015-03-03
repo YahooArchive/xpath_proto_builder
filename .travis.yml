@@ -6,6 +6,11 @@ env:
         - secure: "VY0VNZ2DSroR01YjVItrHed1tdW1XDHw6J1NX2rDO3CyMYSDy0kAWiT1F/G6QfExsGaFbtLRLSIWkpKv2HhIyxr7G3vwegqvaHRDUA+PiY66EYrWcS7SWG5YqCojiucEzQwjFnXPrpvIYVgcxID3P2nfBkeqU4KD0/QSD/JLZF0="
         - secure: "OvB4Ev/6vnVhuQWzjPwnJmT4vY2LL0xdf5RVbRo5n620KyvyOvUjdeoQIQY8glkDCo97mwaheFXQZ7mclgPa+N6UKWAP0NrhGENAxf6rTYUVj+JOhqGcTKXvpSOn1Ce2sxTD3DUtVXTqQSOPzyFj5VPAQG1uERd0gUgu+5SDK3c="
 
+#whitelist branches
+branches:
+    only:
+        - master
+
 before_install:
     - openssl aes-256-cbc -pass pass:$GPG_PASSWORD -in secring.gpg.enc -out secring.gpg -d
     - openssl aes-256-cbc -pass pass:$GPG_PASSWORD -in pubring.gpg.enc -out pubring.gpg -d
@@ -13,9 +18,5 @@ before_install:
     - cp pubring.gpg ~/.gnupg/
 
 script:
-    - mvn clean install
-
-after_success:
-    - mvn -B release:clean release:prepare --settings settings.xml
-    - mvn release:perform --settings settings.xml
+    - mvn clean deploy --settings settings.xml
 
