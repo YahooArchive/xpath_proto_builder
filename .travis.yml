@@ -9,8 +9,8 @@ env:
 before_install:
     - openssl aes-256-cbc -pass pass:$GPG_PASSWORD -in secring.gpg.enc -out secring.gpg -d
     - openssl aes-256-cbc -pass pass:$GPG_PASSWORD -in pubring.gpg.enc -out pubring.gpg -d
-    - cp secring.gpg ~/.gnupg
-    - cp pubring.gpg ~/.gnupg
+    - cp secring.gpg ~/.gnupg/
+    - cp pubring.gpg ~/.gnupg/
 
 script:
     - mvn clean install
