@@ -6,7 +6,7 @@
         <activeByDefault>true</activeByDefault>
       </activation>
       <properties>
-        <gpg.executable>gpg2</gpg.executable>
+        <gpg.keyname>2F8673BC</gpg.keyname>
         <gpg.passphrase>${env.GPG_PASSWORD}</gpg.passphrase>
       </properties>
     </profile>
