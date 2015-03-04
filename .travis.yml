@@ -21,8 +21,5 @@ before_install:
 
 script:
     - mvn clean install
-
-after_success:
-    - mvn -B release:clean release:prepare --settings settings.xml
-    - mvn release:perform --settings settings.xml
+    - mvn clean deploy --settings settings.xml
 
