@@ -12,6 +12,7 @@ branches:
         - master
 
 before_install:
+    - sudo apt-get install -y gnupg2
     - mv secring.gpg ~/.gnupg/secring.gpg
     - mv pubring.gpg ~/.gnupg/pubring.gpg
 
