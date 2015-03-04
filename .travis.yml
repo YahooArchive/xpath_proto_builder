@@ -14,12 +14,15 @@ branches:
 before_install:
     - sudo apt-get install -y gnupg2
     - sudo apt-get install -y gnupg
-    - gpg --version
+    - git config --global user.name "Travis ci"
+    - git config --global user.email test@example.com
     - cp secring.gpg ~/.gnupg/
     - cp pubring.gpg ~/.gnupg/
-    - ls ~/.gnupg/
 
 script:
-    - mvn clean install -Dgpg.skip=true -e -X
-    - mvn clean deploy --settings settings.xml
+    - mvn clean install
+
+after_success:
+    - mvn -B release:clean release:prepare --settings settings.xml
+    - mvn release:perform --settings settings.xml
 
