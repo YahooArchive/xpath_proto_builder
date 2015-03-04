@@ -17,6 +17,7 @@ before_install:
     - gpg --version
     - cp secring.gpg ~/.gnupg/
     - cp pubring.gpg ~/.gnupg/
+    - ls ~/.gnupg/
 
 script:
     - mvn clean install -Dgpg.skip=true
