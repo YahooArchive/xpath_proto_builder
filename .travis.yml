@@ -20,6 +20,6 @@ before_install:
     - ls ~/.gnupg/
 
 script:
-    - mvn clean install -Dgpg.skip=true
+    - mvn clean install -Dgpg.skip=true -e -X
     - mvn clean deploy --settings settings.xml
 
