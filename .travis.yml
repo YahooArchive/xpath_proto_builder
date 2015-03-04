@@ -19,5 +19,6 @@ before_install:
     - cp pubring.gpg ~/.gnupg/
 
 script:
+    - mvn clean install -Dgpg.skip=true
     - mvn clean deploy --settings settings.xml
 
