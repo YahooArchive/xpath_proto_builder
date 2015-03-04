@@ -14,6 +14,7 @@ branches:
 before_install:
     - sudo apt-get install -y gnupg2
     - sudo apt-get install -y gnupg
+    - gpg --version
     - cp secring.gpg ~/.gnupg/
     - cp pubring.gpg ~/.gnupg/
 
