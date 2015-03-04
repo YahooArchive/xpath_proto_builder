@@ -229,7 +229,6 @@
                         <configuration>
                             <keyname>2F8673BC</keyname>
                             <passphraseServerId>2F8673BC</passphraseServerId>
-                            <homedir>~/.gnupg</homedir>
                         </configuration>
                     </execution>
                 </executions>
