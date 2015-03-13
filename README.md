@@ -1,6 +1,8 @@
 xpath_proto_builder
 ==================
 
+[![Build Status](https://travis-ci.org/yahoo/xpath_proto_builder.svg?branch=master)](https://travis-ci.org/yahoo/xpath_proto_builder)
+
 xpath_proto_builder is a library to convert objects (JSON, XML, POJO) into protobuf using xpath notation. It primarily uses [apache's jxpath](http://commons.apache.org/proper/commons-jxpath/users-guide.html) library to query input data and [google's protobuf](https://developers.google.com/protocol-buffers/) library to populate a protobuf message.
 
 This code is licensed under the BSD license.
