@@ -21,20 +21,22 @@ import com.yahoo.xpathproto.dataobject.Context;
 public class ImageHandler implements ObjectToProtoHandler {
 
     @Override
-    public Message.Builder getProtoBuilder(JXPathContext context, Context vars, Config.Entry entry) {
+    public Message.Builder getProtoBuilder(final JXPathContext context, final Context vars, final Config.Entry entry) {
+        JXPathContext curContext = context;
         if (!entry.getPath().isEmpty()) {
-            context = JXPathCopier.getRelativeContext(context, entry.getPath());
+            curContext = JXPathCopier.getRelativeContext(context, entry.getPath());
         }
 
-        if (null == context) {
+        if (null == curContext) {
             return null;
         }
 
-        return copyObjectToImageAsset(context);
+        return copyObjectToImageAsset(curContext);
     }
 
     @Override
-    public List<Message.Builder> getRepeatedProtoBuilder(JXPathContext context, Context vars, Config.Entry entry) {
+    public List<Message.Builder> getRepeatedProtoBuilder(
+        final JXPathContext context, final Context vars, final Config.Entry entry) {
         List<Message.Builder> builders = new ArrayList();
 
         Iterator iterator = context.iterate(entry.getPath());
@@ -46,7 +48,7 @@ public class ImageHandler implements ObjectToProtoHandler {
         return builders;
     }
 
-    public static TransformTestProtos.ContentImage.Builder copyObjectToImageAsset(JXPathContext context) {
+    public static TransformTestProtos.ContentImage.Builder copyObjectToImageAsset(final JXPathContext context) {
         TransformTestProtos.ContentImage.Builder imageBuilder = TransformTestProtos.ContentImage.newBuilder();
 
         JXPathCopier imageCopier = new JXPathCopier(context, imageBuilder);

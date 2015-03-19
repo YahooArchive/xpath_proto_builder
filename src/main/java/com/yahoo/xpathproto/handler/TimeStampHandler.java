@@ -17,13 +17,13 @@ import com.yahoo.xpathproto.dataobject.Context;
 public class TimeStampHandler implements ObjectToFieldHandler {
 
     @Override
-    public Object getProtoValue(JXPathContext context, Context vars, Config.Entry entry) {
+    public Object getProtoValue(final JXPathContext context, final Context vars, final Config.Entry entry) {
         long curTime = System.currentTimeMillis() / 1000;
         return curTime;
     }
 
     @Override
-    public List<Object> getRepeatedProtoValue(JXPathContext context, Context vars, Entry entry) {
+    public List<Object> getRepeatedProtoValue(final JXPathContext context, final Context vars, final Entry entry) {
         throw new UnsupportedOperationException("Invalid operation");
     }
 }

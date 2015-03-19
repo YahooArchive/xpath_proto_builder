@@ -24,35 +24,10 @@ import com.google.protobuf.Message.Builder;
  */
 public class JXPathCopier {
 
-    private static final Logger logger = LoggerFactory.getLogger(JXPathCopier.class);
-
-    public static JXPathContext getRelativeContext(JXPathContext context, String path) {
-        Pointer pointer = context.getPointer(path);
-        if ((pointer == null) || (pointer.getNode() == null)) {
-            return null;
-        }
-
-        return context.getRelativeContext(pointer);
-    }
-
-    private static void setTargetField(Builder target, Object sourceObject, String targetField)
-        throws IllegalArgumentException {
-        Descriptors.FieldDescriptor fieldDescriptor = target.getDescriptorForType().findFieldByName(targetField);
-        if (null == fieldDescriptor) {
-            throw new RuntimeException("Unknown target field in protobuf: " + targetField);
-        }
-
-        if (fieldDescriptor.isRepeated()) {
-            target.addRepeatedField(fieldDescriptor, sourceObject);
-        } else {
-            target.setField(fieldDescriptor, sourceObject);
-        }
-    }
-
     private final JXPathContext source;
     private final Builder target;
 
-    public JXPathCopier(JXPathContext source, Builder target) {
+    public JXPathCopier(final JXPathContext source, final Builder target) {
         this.source = source;
         this.target = target;
 
@@ -67,15 +42,15 @@ public class JXPathCopier {
         return target;
     }
 
-    public Object getValue(String path) {
+    public Object getValue(final String path) {
         return source.getValue(path);
     }
 
-    public JXPathContext getRelativeContext(String path) {
+    public JXPathContext getRelativeContext(final String path) {
         return getRelativeContext(source, path);
     }
 
-    public JXPathCopier copyObject(Object sourceObject, String targetField) {
+    public JXPathCopier copyObject(final Object sourceObject, final String targetField) {
         if (sourceObject != null) {
             setTargetField(target, sourceObject, targetField);
         }
@@ -83,8 +58,8 @@ public class JXPathCopier {
         return this;
     }
 
-    public JXPathCopier copyScalarObject(Object sourceObject, String targetField,
-                                         Descriptors.FieldDescriptor fieldDescriptor) {
+    public JXPathCopier copyScalarObject(
+        final Object sourceObject, final String targetField, final Descriptors.FieldDescriptor fieldDescriptor) {
         Descriptors.FieldDescriptor.JavaType javaType = fieldDescriptor.getJavaType();
         switch (javaType) {
             case INT:
@@ -117,7 +92,7 @@ public class JXPathCopier {
         return this;
     }
 
-    public JXPathCopier copyAsScalar(String sourcePath, String targetField) {
+    public JXPathCopier copyAsScalar(final String sourcePath, final String targetField) {
         Descriptors.FieldDescriptor fieldDescriptor = target.getDescriptorForType().findFieldByName(targetField);
         if (null == fieldDescriptor) {
             throw new RuntimeException("Unknown target field in protobuf: " + targetField);
@@ -139,20 +114,20 @@ public class JXPathCopier {
         return this;
     }
 
-    public JXPathCopier copyAsScalar(String sourcePath) {
+    public JXPathCopier copyAsScalar(final String sourcePath) {
         return copyAsScalar(sourcePath, sourcePath);
     }
 
-    public JXPathCopier copyAsString(String sourcePath, String targetField) {
+    public JXPathCopier copyAsString(final String sourcePath, final String targetField) {
         Object sourceObject = source.getValue(sourcePath);
         return copyAsString(sourceObject, targetField);
     }
 
-    public JXPathCopier copyAsString(String sourcePath) {
+    public JXPathCopier copyAsString(final String sourcePath) {
         return copyAsString(sourcePath, sourcePath);
     }
 
-    private JXPathCopier copyAsString(Object sourceObject, String targetField) {
+    private JXPathCopier copyAsString(final Object sourceObject, final String targetField) {
         if (sourceObject != null) {
             setTargetField(target, sourceObject.toString(), targetField);
         }
@@ -160,7 +135,8 @@ public class JXPathCopier {
         return this;
     }
     
-    public JXPathCopier copyAsEnum(Object sourceObject, String targetField, Descriptors.FieldDescriptor fieldDescriptor) {
+    public JXPathCopier copyAsEnum(
+        final Object sourceObject, final String targetField, final Descriptors.FieldDescriptor fieldDescriptor) {
         String enumName = sourceObject.toString();
         Object value = fieldDescriptor.getEnumType().findValueByName(enumName);
         if (value != null) {
@@ -169,16 +145,16 @@ public class JXPathCopier {
         return this;
     }
 
-    public JXPathCopier copyAsInteger(String sourcePath, String targetField) {
+    public JXPathCopier copyAsInteger(final String sourcePath, final String targetField) {
         Object sourceObject = source.getValue(sourcePath);
         return copyAsInteger(sourceObject, targetField);
     }
 
-    public JXPathCopier copyAsInteger(String sourcePath) {
+    public JXPathCopier copyAsInteger(final String sourcePath) {
         return copyAsInteger(sourcePath, sourcePath);
     }
 
-    private JXPathCopier copyAsInteger(Object sourceObject, String targetField) {
+    private JXPathCopier copyAsInteger(final Object sourceObject, final String targetField) {
         if (sourceObject != null) {
             try {
                 Integer object = Integer.parseInt(sourceObject.toString());
@@ -190,16 +166,16 @@ public class JXPathCopier {
         return this;
     }
 
-    public JXPathCopier copyAsLong(String sourcePath, String targetField) {
+    public JXPathCopier copyAsLong(final String sourcePath, final String targetField) {
         Object sourceObject = source.getValue(sourcePath);
         return copyAsLong(sourceObject, targetField);
     }
 
-    public JXPathCopier copyAsLong(String sourcePath) {
+    public JXPathCopier copyAsLong(final String sourcePath) {
         return copyAsLong(sourcePath, sourcePath);
     }
 
-    public JXPathCopier copyAsLong(Object sourceObject, String targetField) {
+    public JXPathCopier copyAsLong(final Object sourceObject, final String targetField) {
         if (sourceObject != null) {
             try {
                 Long object = Long.parseLong(sourceObject.toString());
@@ -211,16 +187,16 @@ public class JXPathCopier {
         return this;
     }
 
-    public JXPathCopier copyAsDouble(String sourcePath, String targetField) {
+    public JXPathCopier copyAsDouble(final String sourcePath, final String targetField) {
         Object sourceObject = source.getValue(sourcePath);
         return copyAsDouble(sourceObject, targetField);
     }
 
-    public JXPathCopier copyAsDouble(String sourcePath) {
+    public JXPathCopier copyAsDouble(final String sourcePath) {
         return copyAsDouble(sourcePath, sourcePath);
     }
 
-    public JXPathCopier copyAsDouble(Object sourceObject, String targetField) {
+    public JXPathCopier copyAsDouble(final Object sourceObject, final String targetField) {
         if (sourceObject != null) {
             try {
                 Double object = Double.parseDouble(sourceObject.toString());
@@ -232,16 +208,16 @@ public class JXPathCopier {
         return this;
     }
 
-    public JXPathCopier copyAsFloat(String sourcePath, String targetField) {
+    public JXPathCopier copyAsFloat(final String sourcePath, final String targetField) {
         Object sourceObject = source.getValue(sourcePath);
         return copyAsFloat(sourceObject, targetField);
     }
 
-    public JXPathCopier copyAsFloat(String sourcePath) {
+    public JXPathCopier copyAsFloat(final String sourcePath) {
         return copyAsFloat(sourcePath, sourcePath);
     }
 
-    public JXPathCopier copyAsFloat(Object sourceObject, String targetField) {
+    public JXPathCopier copyAsFloat(final Object sourceObject, final String targetField) {
         if (sourceObject != null) {
             try {
                 Float object = Float.parseFloat(sourceObject.toString());
@@ -253,16 +229,16 @@ public class JXPathCopier {
         return this;
     }
 
-    public JXPathCopier copyAsBoolean(String sourcePath, String targetField) {
+    public JXPathCopier copyAsBoolean(final String sourcePath, final String targetField) {
         Object sourceObject = source.getValue(sourcePath);
         return copyAsBoolean(sourceObject, targetField);
     }
 
-    public JXPathCopier copyAsBoolean(String sourcePath) {
+    public JXPathCopier copyAsBoolean(final String sourcePath) {
         return copyAsBoolean(sourcePath, sourcePath);
     }
 
-    public JXPathCopier copyAsBoolean(Object sourceObject, String targetField) {
+    public JXPathCopier copyAsBoolean(final Object sourceObject, final String targetField) {
         if (sourceObject != null) {
             try {
                 Boolean object = Boolean.parseBoolean(sourceObject.toString());
@@ -272,5 +248,28 @@ public class JXPathCopier {
         }
 
         return this;
+    }
+
+    public static JXPathContext getRelativeContext(final JXPathContext context, final String path) {
+        Pointer pointer = context.getPointer(path);
+        if ((pointer == null) || (pointer.getNode() == null)) {
+            return null;
+        }
+
+        return context.getRelativeContext(pointer);
+    }
+
+    private static void setTargetField(final Builder target, final Object sourceObject, final String targetField)
+        throws IllegalArgumentException {
+        Descriptors.FieldDescriptor fieldDescriptor = target.getDescriptorForType().findFieldByName(targetField);
+        if (null == fieldDescriptor) {
+            throw new RuntimeException("Unknown target field in protobuf: " + targetField);
+        }
+
+        if (fieldDescriptor.isRepeated()) {
+            target.addRepeatedField(fieldDescriptor, sourceObject);
+        } else {
+            target.setField(fieldDescriptor, sourceObject);
+        }
     }
 }

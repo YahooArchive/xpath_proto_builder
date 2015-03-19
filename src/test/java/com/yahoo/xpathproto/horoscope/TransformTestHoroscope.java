@@ -17,12 +17,9 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yahoo.xpathproto.ProtoBuilder;
 
 public class TransformTestHoroscope {
-
-    private static final ObjectMapper mapper = new ObjectMapper();
 
     @Test
     public void testHoroscope() throws Exception {
@@ -45,7 +42,7 @@ public class TransformTestHoroscope {
         Assert.assertEquals(builder.getPublishDate(), "Tue, 07 May 2013 00:00:00 +0000");
     }
 
-    private Document loadXml(String body) throws ParserConfigurationException, IOException, SAXException {
+    private Document loadXml(final String body) throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
         DocumentBuilder builder = factory.newDocumentBuilder();
