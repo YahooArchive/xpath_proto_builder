@@ -10,8 +10,8 @@ public class RfcTimestampHandlerTest {
         Object ts = RfcTimestampHandler.parseDate("2014-01-17T14:11:35Z");
         Assert.assertEquals(ts, new Long(1389967895));
 
-        ts = RfcTimestampHandler.parseDate("2013-12-27T05:13:21Z");
-        Assert.assertEquals(ts, new Long(1388121201));
+        ts = RfcTimestampHandler.parseDate("2015-02-27T13:32:28.329Z");
+        Assert.assertEquals(ts, new Long(1425043948));
     }
 
     @Test
