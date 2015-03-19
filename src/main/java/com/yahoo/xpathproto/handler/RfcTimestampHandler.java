@@ -23,7 +23,7 @@ import com.yahoo.xpathproto.dataobject.Context;
 public class RfcTimestampHandler implements ObjectToFieldHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(RfcTimestampHandler.class);
-    private static DateTimeFormatter formatter = ISODateTimeFormat.dateTimeNoMillis();
+    private static final DateTimeFormatter formatter = ISODateTimeFormat.dateTimeParser();
 
     @Override
     public Object getProtoValue(final JXPathContext context, final Context vars, final Config.Entry entry) {
@@ -35,7 +35,12 @@ public class RfcTimestampHandler implements ObjectToFieldHandler {
         return parseDate(object.toString());
     }
 
-    public Object parseDate(final String dateStr) {
+    @Override
+    public List<Object> getRepeatedProtoValue(final JXPathContext context, final Context vars, final Entry entry) {
+        throw new UnsupportedOperationException("Invalid operation");
+    }
+
+    static Object parseDate(final String dateStr) {
         DateTime date;
         try {
             date = formatter.parseDateTime(dateStr).toDateTime(DateTimeZone.UTC);
@@ -45,10 +50,5 @@ public class RfcTimestampHandler implements ObjectToFieldHandler {
         }
 
         return date.getMillis() / 1000;
-    }
-
-    @Override
-    public List<Object> getRepeatedProtoValue(final JXPathContext context, final Context vars, final Entry entry) {
-        throw new UnsupportedOperationException("Invalid operation");
     }
 }

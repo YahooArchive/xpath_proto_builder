@@ -16,12 +16,12 @@ import com.yahoo.xpathproto.dataobject.Context;
 public class DummyObjectToFieldHandler implements ObjectToFieldHandler {
 
     @Override
-    public Object getProtoValue(JXPathContext context, Context vars, Entry entry) {
+    public Object getProtoValue(final JXPathContext context, final Context vars, final Entry entry) {
         return new String("str_values_main");
     }
 
     @Override
-    public List<Object> getRepeatedProtoValue(JXPathContext context, Context vars, Entry entry) {
+    public List<Object> getRepeatedProtoValue(final JXPathContext context, final Context vars, final Entry entry) {
         @SuppressWarnings("serial")
         List<Object> strValues = new ArrayList<Object>() {
             {

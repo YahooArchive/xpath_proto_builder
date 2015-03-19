@@ -86,23 +86,4 @@ public class ObjectTransformerTest {
         Assert.assertEquals(builder.getStrValuesCount(), 2);
         Assert.assertEquals(builder.getStrValuesList(), expectedStrValues);
     }
-
-    @Test
-    public void testRfcTimestamp() {
-
-        Object ts = new RfcTimestampHandler().parseDate("2014-01-17T14:11:35Z");
-        Assert.assertEquals(ts, new Long(1389967895));
-
-        ts = new RfcTimestampHandler().parseDate("2013-12-27T05:13:21Z");
-        Assert.assertEquals(ts, new Long(1388121201));
-    }
-
-    @Test
-    public void testRfcTimestampError() {
-        try {
-            Object ts = new RfcTimestampHandler().parseDate("abc");
-        } catch (IllegalArgumentException e) {
-            Assert.assertTrue(true);
-        }
-    }
 }

@@ -15,7 +15,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Config {
 
     @JsonProperty("definitions")
-    public Map<String, Definition> definitions;
+    private Map<String, Definition> definitions;
+
+    public Map<String, Definition> getDefinitions() {
+        return definitions;
+    }
 
     public static class Definition {
 
@@ -26,7 +30,7 @@ public class Config {
             return proto;
         }
 
-        public void setProto(String proto) {
+        public void setProto(final String proto) {
             this.proto = proto;
         }
 
@@ -34,7 +38,7 @@ public class Config {
             return transforms;
         }
 
-        public void setTransforms(List<Entry> transforms) {
+        public void setTransforms(final List<Entry> transforms) {
             this.transforms = transforms;
         }
     }
@@ -52,7 +56,7 @@ public class Config {
             return field;
         }
 
-        public void setField(String field) {
+        public void setField(final String field) {
             this.field = field;
         }
 
@@ -60,7 +64,7 @@ public class Config {
             return variable;
         }
 
-        public void setVariable(String variable) {
+        public void setVariable(final String variable) {
             this.variable = variable;
         }
 
@@ -68,7 +72,7 @@ public class Config {
             return path;
         }
 
-        public void setPath(String path) {
+        public void setPath(final String path) {
             this.path = path;
         }
 
@@ -76,7 +80,7 @@ public class Config {
             return handler;
         }
 
-        public void setHandler(String handler) {
+        public void setHandler(final String handler) {
             this.handler = handler;
         }
 
@@ -84,7 +88,7 @@ public class Config {
             return definition;
         }
 
-        public void setDefinition(String definition) {
+        public void setDefinition(final String definition) {
             this.definition = definition;
         }
 
@@ -92,7 +96,7 @@ public class Config {
             return limit;
         }
 
-        public void setLimit(Integer limit) {
+        public void setLimit(final Integer limit) {
             this.limit = limit;
         }
 

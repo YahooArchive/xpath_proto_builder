@@ -17,7 +17,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.protobuf.Descriptors;
@@ -27,19 +26,17 @@ import com.yahoo.xpathproto.dataobject.Context;
 
 public class ProtoBuilder {
 
-    private static String DEFAULT_TRANSFORMER = "root_transform";
+    private static final String DEFAULT_TRANSFORMER = "root_transform";
     private static final Logger logger = LoggerFactory.getLogger(ProtoBuilder.class);
-    private static Cache<String, Config> configCache = CacheBuilder.newBuilder().maximumSize(10).build();
+    private static final Cache<String, Config> configCache = CacheBuilder.newBuilder().maximumSize(100).build();
 
-    private Context context;
+    private static final Map<String, CustomHandler> handlers = new ConcurrentHashMap<>();
+    private static final Map<String, Message> defaultInstances = new ConcurrentHashMap<>();
+
+    private final Context context;
     private final String builderConfig;
     private final String transform;
     private JXPathContext jXPathContext;
-    
-    private static final Map<String, Config> configs = new ConcurrentHashMap<>();
-    private static final Map<String, CustomHandler> handlers = new ConcurrentHashMap<>();
-    private static final Map<String, Message> defaultInstances = new ConcurrentHashMap<>();
-    private static final ObjectMapper mapper = new ObjectMapper();
 
     /**
      * Instantiates a new proto builder from the config file provided by the user. The default transformation definition
@@ -118,7 +115,7 @@ public class ProtoBuilder {
 
     private static Message.Builder transformUsing(final Context vars, final Config config, JXPathCopier copier,
                     final String definitionName) {
-        Config.Definition definition = config.definitions.get(definitionName);
+        Config.Definition definition = config.getDefinitions().get(definitionName);
         if (null == definition) {
             throw new IllegalArgumentException("Cannot find transform definition: " + definitionName);
         }
@@ -304,7 +301,7 @@ public class ProtoBuilder {
         }
     }
 
-    private static CustomHandler createHandler(String className) {
+    private static CustomHandler createHandler(final String className) {
         CustomHandler handler = handlers.get(className);
         if (null == handler) {
             try {

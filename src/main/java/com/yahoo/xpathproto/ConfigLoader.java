@@ -28,7 +28,7 @@ public class ConfigLoader implements Callable<Config> {
     private static final Logger logger = LoggerFactory.getLogger(ConfigLoader.class);
     private static final ObjectMapper mapper = new ObjectMapper();
 
-    private String configPath;
+    private final String configPath;
 
     /**
      * Instantiates a new config loader.
@@ -59,12 +59,12 @@ public class ConfigLoader implements Callable<Config> {
         try {
             config = mapper.readValue(configstream, Config.class);
             validateAndDenormalize(config);
-        } catch (IOException e) {
+        } catch (final IOException e) {
             exception = e;
         } finally {
             try {
                 configstream.close();
-            } catch (IOException f) {
+            } catch (final IOException f) {
                 logger.warn("Unable to close stream for file: " + configPath, f);
             }
         }
@@ -74,8 +74,8 @@ public class ConfigLoader implements Callable<Config> {
         return config;
     }
 
-    private void validateAndDenormalize(Config config) {
-        Iterator<Map.Entry<String, Config.Definition>> entries = config.definitions.entrySet().iterator();
+    private static void validateAndDenormalize(final Config config) {
+        Iterator<Map.Entry<String, Config.Definition>> entries = config.getDefinitions().entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry<String, Config.Definition> entry = entries.next();
 
