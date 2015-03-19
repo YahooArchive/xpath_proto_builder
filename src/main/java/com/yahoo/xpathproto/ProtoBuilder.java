@@ -120,9 +120,10 @@ public class ProtoBuilder {
             throw new IllegalArgumentException("Cannot find transform definition: " + definitionName);
         }
 
-        if (null != definition.getProto()) {
-            Message.Builder target = createMessageBuilder(definition.getProto());
-            copier = new JXPathCopier(copier.getSource(), target);
+        String proto = definition.getProto();
+        if (null != proto) {
+            proto = (String) vars.substituteVar(proto);
+            copier = new JXPathCopier(copier.getSource(), createMessageBuilder(proto));
         } else if (copier.getTarget() == null) {
             throw new IllegalArgumentException("proto class must be specified at the top level definition name: "
                             + definitionName);
@@ -139,19 +140,20 @@ public class ProtoBuilder {
             } else if (transform.getHandler() != null) {
                 transformUsingHandler(vars, config, copier, transform);
             } else {
-                if (transform.getPath().startsWith("$")) {
-                    Object value = vars.getValue(transform.getPath().substring(1));
+                String path = transform.getPath();
+                if (path.startsWith("$")) {
+                    Object value = vars.substituteVar(path);
                     if (value != null) {
                         copier.copyObject(value, transform.getField());
                     }
                 } else {
                     if (transform.getField() != null) {
-                        copier.copyAsScalar(transform.getPath(), transform.getField());                        
+                        copier.copyAsScalar(path, transform.getField());
                     }
                 }
 
                 if (transform.getVariable() != null) {
-                    vars.setValue(transform.getVariable(), copier.getValue(transform.getPath()));
+                    vars.setValue(transform.getVariable(), copier.getValue(path));
                 }
             }
         }
@@ -316,15 +318,18 @@ public class ProtoBuilder {
     }
 
     private static Message.Builder createMessageBuilder(final String className) {
-        Message defaultInstance = defaultInstances.get(className);
-        try {
-            Class messageClass = Class.forName(className);
-            Method getDefaultInstanceMethod = messageClass.getMethod("getDefaultInstance", (Class[]) null);
-            defaultInstance = (Message) getDefaultInstanceMethod.invoke((Object[]) null, (Object[]) null);
-            defaultInstances.put(className, defaultInstance);
-        } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            throw new RuntimeException(e);
+        Message cachedInstance = defaultInstances.get(className);
+        if (cachedInstance == null) {
+            try {
+                Class messageClass = Class.forName(className);
+                Method getDefaultInstanceMethod = messageClass.getMethod("getDefaultInstance", (Class[]) null);
+                cachedInstance = (Message) getDefaultInstanceMethod.invoke((Object[]) null, (Object[]) null);
+                defaultInstances.put(className, cachedInstance);
+            } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+                throw new RuntimeException(e);
+            }
         }
-        return defaultInstance.newBuilderForType();
+
+        return cachedInstance.newBuilderForType();
     }
 }
