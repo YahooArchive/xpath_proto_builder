@@ -20,6 +20,14 @@ public class Context {
         variables.put(name, value);
     }
 
+    public Object substituteVar(final String value) {
+        if (!value.startsWith("$")) {
+            return value;
+        }
+
+        return getValue(value.substring(1));
+    }
+
     @Override
     public String toString() {
         return "Context [variables=" + variables + "]";
