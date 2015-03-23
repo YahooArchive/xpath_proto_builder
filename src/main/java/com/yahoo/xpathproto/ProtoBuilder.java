@@ -210,7 +210,7 @@ public class ProtoBuilder {
     private static void transformUsingHandler(final Context vars, final Config config, final JXPathCopier copier,
                     final Config.Entry transform) {
         JXPathContext context = copier.getSource();
-        CustomHandler handler = createHandler(transform.getHandler());
+        CustomHandler handler = createHandler((String) vars.substituteVar(transform.getHandler()));
         
         Descriptors.FieldDescriptor fieldDescriptor = null;
         
