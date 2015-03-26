@@ -15,6 +15,7 @@ before_install:
     - sudo apt-get install -y gnupg2
     - sudo apt-get install -y gnupg
     - cp pubring.gpg ~/.gnupg/
+    - cp secring.gpg ~/.gnupg/
 
 script:
     - mvn clean install
