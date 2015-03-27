@@ -24,6 +24,7 @@ Add the following lines to your pom file:
    ...
    </dependencies>
    ```
+You can get the latest version number from [here](http://search.maven.org/#search%7Cga%7C1%7Cxpathproto).
 
 Usage
 -----
