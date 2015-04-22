@@ -137,10 +137,12 @@ public class JXPathCopier {
     
     public JXPathCopier copyAsEnum(
         final Object sourceObject, final String targetField, final Descriptors.FieldDescriptor fieldDescriptor) {
-        String enumName = sourceObject.toString();
-        Object value = fieldDescriptor.getEnumType().findValueByName(enumName);
-        if (value != null) {
-            setTargetField(target, value, targetField);
+        if (sourceObject != null) {
+            String enumName = sourceObject.toString();
+            Object value = fieldDescriptor.getEnumType().findValueByName(enumName);
+            if (value != null) {
+                setTargetField(target, value, targetField);
+            }
         }
         return this;
     }
