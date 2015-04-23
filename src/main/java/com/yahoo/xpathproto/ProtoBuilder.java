@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
 
+import com.google.common.base.Preconditions;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.protobuf.Descriptors;
@@ -36,7 +37,6 @@ public class ProtoBuilder {
     private final Context context;
     private final String builderConfig;
     private final String transform;
-    private JXPathContext jXPathContext;
 
     /**
      * Instantiates a new proto builder from the config file provided by the user. The default transformation definition
@@ -56,7 +56,7 @@ public class ProtoBuilder {
      * @param transform - The transformation definition that should be used from the config file.
      */
     public ProtoBuilder(final String builderConfig, final String transform) {
-        this(builderConfig, transform, null);
+        this(builderConfig, transform, new Context());
     }
 
     /**
@@ -69,6 +69,8 @@ public class ProtoBuilder {
      * @param context - The context object
      */
     public ProtoBuilder(final String builderConfig, final String transform, final Context context) {
+        Preconditions.checkNotNull(context);
+
         this.builderConfig = builderConfig;
         this.transform = transform;
         this.context = context;
@@ -81,14 +83,11 @@ public class ProtoBuilder {
      * @return The corresponding message builder object for the input.
      */
     public Message.Builder builder(final Object content) {
-        this.jXPathContext = JXPathContext.newContext(content);
-        this.jXPathContext.setLenient(true);
+        JXPathContext jXPathContext = JXPathContext.newContext(content);
+        jXPathContext.setLenient(true);
+        JXPathCopier jxPathCopier = new JXPathCopier(jXPathContext, null);
 
-        if (context == null) {
-            return transformUsing(new Context(), builderConfig, transform);
-        } else {
-            return transformUsing(context, builderConfig, transform);
-        }
+        return transformUsing(new Context(context), builderConfig, jxPathCopier, transform);
     }
 
     /**
@@ -101,8 +100,8 @@ public class ProtoBuilder {
         return this.builder(content).build();
     }
 
-    private <T extends Message.Builder> T transformUsing(final Context vars, final String configPath,
-                    final String definitionName) {
+    private static <T extends Message.Builder> T transformUsing(
+        final Context vars, final String configPath, final JXPathCopier copier, final String definitionName) {
         Config config;
         try {
             config = configCache.get(configPath, new ConfigLoader(configPath));
@@ -110,7 +109,7 @@ public class ProtoBuilder {
             throw new RuntimeException("There was a problem loading the config from the file: " + configPath);
         }
 
-        return (T) transformUsing(vars, config, new JXPathCopier(jXPathContext, null), definitionName);
+        return (T) transformUsing(vars, config, copier, definitionName);
     }
 
     private static Message.Builder transformUsing(final Context vars, final Config config, JXPathCopier copier,
