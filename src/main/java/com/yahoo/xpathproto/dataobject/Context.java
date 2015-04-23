@@ -12,6 +12,13 @@ public class Context {
 
     private final Map<String, Object> variables = new TreeMap<>();
 
+    public Context() {
+    }
+
+    public Context(final Context context) {
+        variables.putAll(context.variables);
+    }
+
     public Object getValue(final String name) {
         return variables.get(name);
     }
