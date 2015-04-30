@@ -47,6 +47,8 @@ public class ObjectTransformerTest {
             .setNested("select/nested")
             .setTsUpdate(builder.getTsUpdate())
             .setEnumValue(MessageEnum.FIRST)
+            .setEnumValueFromInt(MessageEnum.THIRD)
+            .setEnumValueFromFloat(MessageEnum.THIRD)
             .setConstantValue("constant")
             .setVarValue("var_value")
             .setImageByTransform(

@@ -99,10 +99,10 @@ public final class TransformTestProtos {
     // @@protoc_insertion_point(enum_scope:proto.transform_test.MessageEnum)
   }
 
-  public interface TransformedMessageOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface TransformedMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proto.transform_test.TransformedMessage)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string src = 1;
     /**
      * <code>required string src = 1;</code>
      */
@@ -117,7 +117,6 @@ public final class TransformTestProtos {
     com.google.protobuf.ByteString
         getSrcBytes();
 
-    // required string var_src = 2;
     /**
      * <code>required string var_src = 2;</code>
      */
@@ -132,7 +131,6 @@ public final class TransformTestProtos {
     com.google.protobuf.ByteString
         getVarSrcBytes();
 
-    // required string src_path = 3;
     /**
      * <code>required string src_path = 3;</code>
      */
@@ -147,7 +145,6 @@ public final class TransformTestProtos {
     com.google.protobuf.ByteString
         getSrcPathBytes();
 
-    // required string string_value = 4;
     /**
      * <code>required string string_value = 4;</code>
      */
@@ -162,7 +159,6 @@ public final class TransformTestProtos {
     com.google.protobuf.ByteString
         getStringValueBytes();
 
-    // required int32 int_value = 5;
     /**
      * <code>required int32 int_value = 5;</code>
      */
@@ -172,7 +168,6 @@ public final class TransformTestProtos {
      */
     int getIntValue();
 
-    // required int64 long_value = 6;
     /**
      * <code>required int64 long_value = 6;</code>
      */
@@ -182,7 +177,6 @@ public final class TransformTestProtos {
      */
     long getLongValue();
 
-    // required bool bool_value = 7;
     /**
      * <code>required bool bool_value = 7;</code>
      */
@@ -192,12 +186,11 @@ public final class TransformTestProtos {
      */
     boolean getBoolValue();
 
-    // repeated string str_values = 8;
     /**
      * <code>repeated string str_values = 8;</code>
      */
-    java.util.List<java.lang.String>
-    getStrValuesList();
+    com.google.protobuf.ProtocolStringList
+        getStrValuesList();
     /**
      * <code>repeated string str_values = 8;</code>
      */
@@ -212,7 +205,6 @@ public final class TransformTestProtos {
     com.google.protobuf.ByteString
         getStrValuesBytes(int index);
 
-    // required string nested = 9;
     /**
      * <code>required string nested = 9;</code>
      */
@@ -227,17 +219,6 @@ public final class TransformTestProtos {
     com.google.protobuf.ByteString
         getNestedBytes();
 
-    // optional .proto.transform_test.MessageEnum enum_value = 16;
-    /**
-     * <code>optional .proto.transform_test.MessageEnum enum_value = 16;</code>
-     */
-    boolean hasEnumValue();
-    /**
-     * <code>optional .proto.transform_test.MessageEnum enum_value = 16;</code>
-     */
-    com.yahoo.xpathproto.TransformTestProtos.MessageEnum getEnumValue();
-
-    // required int64 ts_update = 10;
     /**
      * <code>required int64 ts_update = 10;</code>
      */
@@ -247,7 +228,6 @@ public final class TransformTestProtos {
      */
     long getTsUpdate();
 
-    // optional string optional_value = 11;
     /**
      * <code>optional string optional_value = 11;</code>
      */
@@ -262,7 +242,6 @@ public final class TransformTestProtos {
     com.google.protobuf.ByteString
         getOptionalValueBytes();
 
-    // optional .proto.transform_test.ContentImage image_by_transform = 12;
     /**
      * <code>optional .proto.transform_test.ContentImage image_by_transform = 12;</code>
      */
@@ -276,7 +255,6 @@ public final class TransformTestProtos {
      */
     com.yahoo.xpathproto.TransformTestProtos.ContentImageOrBuilder getImageByTransformOrBuilder();
 
-    // repeated .proto.transform_test.ContentImage images_by_transform = 13;
     /**
      * <code>repeated .proto.transform_test.ContentImage images_by_transform = 13;</code>
      */
@@ -301,7 +279,6 @@ public final class TransformTestProtos {
     com.yahoo.xpathproto.TransformTestProtos.ContentImageOrBuilder getImagesByTransformOrBuilder(
         int index);
 
-    // optional .proto.transform_test.ContentImage image_by_handler = 14;
     /**
      * <code>optional .proto.transform_test.ContentImage image_by_handler = 14;</code>
      */
@@ -315,7 +292,6 @@ public final class TransformTestProtos {
      */
     com.yahoo.xpathproto.TransformTestProtos.ContentImageOrBuilder getImageByHandlerOrBuilder();
 
-    // repeated .proto.transform_test.ContentImage images_by_handler = 15;
     /**
      * <code>repeated .proto.transform_test.ContentImage images_by_handler = 15;</code>
      */
@@ -340,7 +316,33 @@ public final class TransformTestProtos {
     com.yahoo.xpathproto.TransformTestProtos.ContentImageOrBuilder getImagesByHandlerOrBuilder(
         int index);
 
-    // required string constant_value = 17;
+    /**
+     * <code>optional .proto.transform_test.MessageEnum enum_value = 16;</code>
+     */
+    boolean hasEnumValue();
+    /**
+     * <code>optional .proto.transform_test.MessageEnum enum_value = 16;</code>
+     */
+    com.yahoo.xpathproto.TransformTestProtos.MessageEnum getEnumValue();
+
+    /**
+     * <code>optional .proto.transform_test.MessageEnum enum_value_from_int = 19;</code>
+     */
+    boolean hasEnumValueFromInt();
+    /**
+     * <code>optional .proto.transform_test.MessageEnum enum_value_from_int = 19;</code>
+     */
+    com.yahoo.xpathproto.TransformTestProtos.MessageEnum getEnumValueFromInt();
+
+    /**
+     * <code>optional .proto.transform_test.MessageEnum enum_value_from_float = 20;</code>
+     */
+    boolean hasEnumValueFromFloat();
+    /**
+     * <code>optional .proto.transform_test.MessageEnum enum_value_from_float = 20;</code>
+     */
+    com.yahoo.xpathproto.TransformTestProtos.MessageEnum getEnumValueFromFloat();
+
     /**
      * <code>required string constant_value = 17;</code>
      */
@@ -355,7 +357,6 @@ public final class TransformTestProtos {
     com.google.protobuf.ByteString
         getConstantValueBytes();
 
-    // required string var_value = 18;
     /**
      * <code>required string var_value = 18;</code>
      */
@@ -374,8 +375,9 @@ public final class TransformTestProtos {
    * Protobuf type {@code proto.transform_test.TransformedMessage}
    */
   public static final class TransformedMessage extends
-      com.google.protobuf.GeneratedMessage
-      implements TransformedMessageOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:proto.transform_test.TransformedMessage)
+      TransformedMessageOrBuilder {
     // Use TransformedMessage.newBuilder() to construct.
     private TransformedMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -422,23 +424,27 @@ public final class TransformTestProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              src_ = input.readBytes();
+              src_ = bs;
               break;
             }
             case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              varSrc_ = input.readBytes();
+              varSrc_ = bs;
               break;
             }
             case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              srcPath_ = input.readBytes();
+              srcPath_ = bs;
               break;
             }
             case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000008;
-              stringValue_ = input.readBytes();
+              stringValue_ = bs;
               break;
             }
             case 40: {
@@ -457,31 +463,34 @@ public final class TransformTestProtos {
               break;
             }
             case 66: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
                 strValues_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000080;
               }
-              strValues_.add(input.readBytes());
+              strValues_.add(bs);
               break;
             }
             case 74: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000080;
-              nested_ = input.readBytes();
+              nested_ = bs;
               break;
             }
             case 80: {
-              bitField0_ |= 0x00000200;
+              bitField0_ |= 0x00000100;
               tsUpdate_ = input.readInt64();
               break;
             }
             case 90: {
-              bitField0_ |= 0x00000400;
-              optionalValue_ = input.readBytes();
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000200;
+              optionalValue_ = bs;
               break;
             }
             case 98: {
               com.yahoo.xpathproto.TransformTestProtos.ContentImage.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000800) == 0x00000800)) {
+              if (((bitField0_ & 0x00000400) == 0x00000400)) {
                 subBuilder = imageByTransform_.toBuilder();
               }
               imageByTransform_ = input.readMessage(com.yahoo.xpathproto.TransformTestProtos.ContentImage.PARSER, extensionRegistry);
@@ -489,20 +498,20 @@ public final class TransformTestProtos {
                 subBuilder.mergeFrom(imageByTransform_);
                 imageByTransform_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000800;
+              bitField0_ |= 0x00000400;
               break;
             }
             case 106: {
-              if (!((mutable_bitField0_ & 0x00002000) == 0x00002000)) {
+              if (!((mutable_bitField0_ & 0x00001000) == 0x00001000)) {
                 imagesByTransform_ = new java.util.ArrayList<com.yahoo.xpathproto.TransformTestProtos.ContentImage>();
-                mutable_bitField0_ |= 0x00002000;
+                mutable_bitField0_ |= 0x00001000;
               }
               imagesByTransform_.add(input.readMessage(com.yahoo.xpathproto.TransformTestProtos.ContentImage.PARSER, extensionRegistry));
               break;
             }
             case 114: {
               com.yahoo.xpathproto.TransformTestProtos.ContentImage.Builder subBuilder = null;
-              if (((bitField0_ & 0x00001000) == 0x00001000)) {
+              if (((bitField0_ & 0x00000800) == 0x00000800)) {
                 subBuilder = imageByHandler_.toBuilder();
               }
               imageByHandler_ = input.readMessage(com.yahoo.xpathproto.TransformTestProtos.ContentImage.PARSER, extensionRegistry);
@@ -510,13 +519,13 @@ public final class TransformTestProtos {
                 subBuilder.mergeFrom(imageByHandler_);
                 imageByHandler_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00001000;
+              bitField0_ |= 0x00000800;
               break;
             }
             case 122: {
-              if (!((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
+              if (!((mutable_bitField0_ & 0x00004000) == 0x00004000)) {
                 imagesByHandler_ = new java.util.ArrayList<com.yahoo.xpathproto.TransformTestProtos.ContentImage>();
-                mutable_bitField0_ |= 0x00008000;
+                mutable_bitField0_ |= 0x00004000;
               }
               imagesByHandler_.add(input.readMessage(com.yahoo.xpathproto.TransformTestProtos.ContentImage.PARSER, extensionRegistry));
               break;
@@ -527,19 +536,43 @@ public final class TransformTestProtos {
               if (value == null) {
                 unknownFields.mergeVarintField(16, rawValue);
               } else {
-                bitField0_ |= 0x00000100;
+                bitField0_ |= 0x00001000;
                 enumValue_ = value;
               }
               break;
             }
             case 138: {
-              bitField0_ |= 0x00002000;
-              constantValue_ = input.readBytes();
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00008000;
+              constantValue_ = bs;
               break;
             }
             case 146: {
-              bitField0_ |= 0x00004000;
-              varValue_ = input.readBytes();
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00010000;
+              varValue_ = bs;
+              break;
+            }
+            case 152: {
+              int rawValue = input.readEnum();
+              com.yahoo.xpathproto.TransformTestProtos.MessageEnum value = com.yahoo.xpathproto.TransformTestProtos.MessageEnum.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(19, rawValue);
+              } else {
+                bitField0_ |= 0x00002000;
+                enumValueFromInt_ = value;
+              }
+              break;
+            }
+            case 160: {
+              int rawValue = input.readEnum();
+              com.yahoo.xpathproto.TransformTestProtos.MessageEnum value = com.yahoo.xpathproto.TransformTestProtos.MessageEnum.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(20, rawValue);
+              } else {
+                bitField0_ |= 0x00004000;
+                enumValueFromFloat_ = value;
+              }
               break;
             }
           }
@@ -551,12 +584,12 @@ public final class TransformTestProtos {
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
-          strValues_ = new com.google.protobuf.UnmodifiableLazyStringList(strValues_);
+          strValues_ = strValues_.getUnmodifiableView();
         }
-        if (((mutable_bitField0_ & 0x00002000) == 0x00002000)) {
+        if (((mutable_bitField0_ & 0x00001000) == 0x00001000)) {
           imagesByTransform_ = java.util.Collections.unmodifiableList(imagesByTransform_);
         }
-        if (((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
+        if (((mutable_bitField0_ & 0x00004000) == 0x00004000)) {
           imagesByHandler_ = java.util.Collections.unmodifiableList(imagesByHandler_);
         }
         this.unknownFields = unknownFields.build();
@@ -591,7 +624,6 @@ public final class TransformTestProtos {
     }
 
     private int bitField0_;
-    // required string src = 1;
     public static final int SRC_FIELD_NUMBER = 1;
     private java.lang.Object src_;
     /**
@@ -634,7 +666,6 @@ public final class TransformTestProtos {
       }
     }
 
-    // required string var_src = 2;
     public static final int VAR_SRC_FIELD_NUMBER = 2;
     private java.lang.Object varSrc_;
     /**
@@ -677,7 +708,6 @@ public final class TransformTestProtos {
       }
     }
 
-    // required string src_path = 3;
     public static final int SRC_PATH_FIELD_NUMBER = 3;
     private java.lang.Object srcPath_;
     /**
@@ -720,7 +750,6 @@ public final class TransformTestProtos {
       }
     }
 
-    // required string string_value = 4;
     public static final int STRING_VALUE_FIELD_NUMBER = 4;
     private java.lang.Object stringValue_;
     /**
@@ -763,7 +792,6 @@ public final class TransformTestProtos {
       }
     }
 
-    // required int32 int_value = 5;
     public static final int INT_VALUE_FIELD_NUMBER = 5;
     private int intValue_;
     /**
@@ -779,7 +807,6 @@ public final class TransformTestProtos {
       return intValue_;
     }
 
-    // required int64 long_value = 6;
     public static final int LONG_VALUE_FIELD_NUMBER = 6;
     private long longValue_;
     /**
@@ -795,7 +822,6 @@ public final class TransformTestProtos {
       return longValue_;
     }
 
-    // required bool bool_value = 7;
     public static final int BOOL_VALUE_FIELD_NUMBER = 7;
     private boolean boolValue_;
     /**
@@ -811,13 +837,12 @@ public final class TransformTestProtos {
       return boolValue_;
     }
 
-    // repeated string str_values = 8;
     public static final int STR_VALUES_FIELD_NUMBER = 8;
     private com.google.protobuf.LazyStringList strValues_;
     /**
      * <code>repeated string str_values = 8;</code>
      */
-    public java.util.List<java.lang.String>
+    public com.google.protobuf.ProtocolStringList
         getStrValuesList() {
       return strValues_;
     }
@@ -841,7 +866,6 @@ public final class TransformTestProtos {
       return strValues_.getByteString(index);
     }
 
-    // required string nested = 9;
     public static final int NESTED_FIELD_NUMBER = 9;
     private java.lang.Object nested_;
     /**
@@ -884,30 +908,13 @@ public final class TransformTestProtos {
       }
     }
 
-    // optional .proto.transform_test.MessageEnum enum_value = 16;
-    public static final int ENUM_VALUE_FIELD_NUMBER = 16;
-    private com.yahoo.xpathproto.TransformTestProtos.MessageEnum enumValue_;
-    /**
-     * <code>optional .proto.transform_test.MessageEnum enum_value = 16;</code>
-     */
-    public boolean hasEnumValue() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
-    }
-    /**
-     * <code>optional .proto.transform_test.MessageEnum enum_value = 16;</code>
-     */
-    public com.yahoo.xpathproto.TransformTestProtos.MessageEnum getEnumValue() {
-      return enumValue_;
-    }
-
-    // required int64 ts_update = 10;
     public static final int TS_UPDATE_FIELD_NUMBER = 10;
     private long tsUpdate_;
     /**
      * <code>required int64 ts_update = 10;</code>
      */
     public boolean hasTsUpdate() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
+      return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
      * <code>required int64 ts_update = 10;</code>
@@ -916,14 +923,13 @@ public final class TransformTestProtos {
       return tsUpdate_;
     }
 
-    // optional string optional_value = 11;
     public static final int OPTIONAL_VALUE_FIELD_NUMBER = 11;
     private java.lang.Object optionalValue_;
     /**
      * <code>optional string optional_value = 11;</code>
      */
     public boolean hasOptionalValue() {
-      return ((bitField0_ & 0x00000400) == 0x00000400);
+      return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
      * <code>optional string optional_value = 11;</code>
@@ -959,14 +965,13 @@ public final class TransformTestProtos {
       }
     }
 
-    // optional .proto.transform_test.ContentImage image_by_transform = 12;
     public static final int IMAGE_BY_TRANSFORM_FIELD_NUMBER = 12;
     private com.yahoo.xpathproto.TransformTestProtos.ContentImage imageByTransform_;
     /**
      * <code>optional .proto.transform_test.ContentImage image_by_transform = 12;</code>
      */
     public boolean hasImageByTransform() {
-      return ((bitField0_ & 0x00000800) == 0x00000800);
+      return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
      * <code>optional .proto.transform_test.ContentImage image_by_transform = 12;</code>
@@ -981,7 +986,6 @@ public final class TransformTestProtos {
       return imageByTransform_;
     }
 
-    // repeated .proto.transform_test.ContentImage images_by_transform = 13;
     public static final int IMAGES_BY_TRANSFORM_FIELD_NUMBER = 13;
     private java.util.List<com.yahoo.xpathproto.TransformTestProtos.ContentImage> imagesByTransform_;
     /**
@@ -1017,14 +1021,13 @@ public final class TransformTestProtos {
       return imagesByTransform_.get(index);
     }
 
-    // optional .proto.transform_test.ContentImage image_by_handler = 14;
     public static final int IMAGE_BY_HANDLER_FIELD_NUMBER = 14;
     private com.yahoo.xpathproto.TransformTestProtos.ContentImage imageByHandler_;
     /**
      * <code>optional .proto.transform_test.ContentImage image_by_handler = 14;</code>
      */
     public boolean hasImageByHandler() {
-      return ((bitField0_ & 0x00001000) == 0x00001000);
+      return ((bitField0_ & 0x00000800) == 0x00000800);
     }
     /**
      * <code>optional .proto.transform_test.ContentImage image_by_handler = 14;</code>
@@ -1039,7 +1042,6 @@ public final class TransformTestProtos {
       return imageByHandler_;
     }
 
-    // repeated .proto.transform_test.ContentImage images_by_handler = 15;
     public static final int IMAGES_BY_HANDLER_FIELD_NUMBER = 15;
     private java.util.List<com.yahoo.xpathproto.TransformTestProtos.ContentImage> imagesByHandler_;
     /**
@@ -1075,14 +1077,58 @@ public final class TransformTestProtos {
       return imagesByHandler_.get(index);
     }
 
-    // required string constant_value = 17;
+    public static final int ENUM_VALUE_FIELD_NUMBER = 16;
+    private com.yahoo.xpathproto.TransformTestProtos.MessageEnum enumValue_;
+    /**
+     * <code>optional .proto.transform_test.MessageEnum enum_value = 16;</code>
+     */
+    public boolean hasEnumValue() {
+      return ((bitField0_ & 0x00001000) == 0x00001000);
+    }
+    /**
+     * <code>optional .proto.transform_test.MessageEnum enum_value = 16;</code>
+     */
+    public com.yahoo.xpathproto.TransformTestProtos.MessageEnum getEnumValue() {
+      return enumValue_;
+    }
+
+    public static final int ENUM_VALUE_FROM_INT_FIELD_NUMBER = 19;
+    private com.yahoo.xpathproto.TransformTestProtos.MessageEnum enumValueFromInt_;
+    /**
+     * <code>optional .proto.transform_test.MessageEnum enum_value_from_int = 19;</code>
+     */
+    public boolean hasEnumValueFromInt() {
+      return ((bitField0_ & 0x00002000) == 0x00002000);
+    }
+    /**
+     * <code>optional .proto.transform_test.MessageEnum enum_value_from_int = 19;</code>
+     */
+    public com.yahoo.xpathproto.TransformTestProtos.MessageEnum getEnumValueFromInt() {
+      return enumValueFromInt_;
+    }
+
+    public static final int ENUM_VALUE_FROM_FLOAT_FIELD_NUMBER = 20;
+    private com.yahoo.xpathproto.TransformTestProtos.MessageEnum enumValueFromFloat_;
+    /**
+     * <code>optional .proto.transform_test.MessageEnum enum_value_from_float = 20;</code>
+     */
+    public boolean hasEnumValueFromFloat() {
+      return ((bitField0_ & 0x00004000) == 0x00004000);
+    }
+    /**
+     * <code>optional .proto.transform_test.MessageEnum enum_value_from_float = 20;</code>
+     */
+    public com.yahoo.xpathproto.TransformTestProtos.MessageEnum getEnumValueFromFloat() {
+      return enumValueFromFloat_;
+    }
+
     public static final int CONSTANT_VALUE_FIELD_NUMBER = 17;
     private java.lang.Object constantValue_;
     /**
      * <code>required string constant_value = 17;</code>
      */
     public boolean hasConstantValue() {
-      return ((bitField0_ & 0x00002000) == 0x00002000);
+      return ((bitField0_ & 0x00008000) == 0x00008000);
     }
     /**
      * <code>required string constant_value = 17;</code>
@@ -1118,14 +1164,13 @@ public final class TransformTestProtos {
       }
     }
 
-    // required string var_value = 18;
     public static final int VAR_VALUE_FIELD_NUMBER = 18;
     private java.lang.Object varValue_;
     /**
      * <code>required string var_value = 18;</code>
      */
     public boolean hasVarValue() {
-      return ((bitField0_ & 0x00004000) == 0x00004000);
+      return ((bitField0_ & 0x00010000) == 0x00010000);
     }
     /**
      * <code>required string var_value = 18;</code>
@@ -1171,20 +1216,23 @@ public final class TransformTestProtos {
       boolValue_ = false;
       strValues_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       nested_ = "";
-      enumValue_ = com.yahoo.xpathproto.TransformTestProtos.MessageEnum.FIRST;
       tsUpdate_ = 0L;
       optionalValue_ = "";
       imageByTransform_ = com.yahoo.xpathproto.TransformTestProtos.ContentImage.getDefaultInstance();
       imagesByTransform_ = java.util.Collections.emptyList();
       imageByHandler_ = com.yahoo.xpathproto.TransformTestProtos.ContentImage.getDefaultInstance();
       imagesByHandler_ = java.util.Collections.emptyList();
+      enumValue_ = com.yahoo.xpathproto.TransformTestProtos.MessageEnum.FIRST;
+      enumValueFromInt_ = com.yahoo.xpathproto.TransformTestProtos.MessageEnum.FIRST;
+      enumValueFromFloat_ = com.yahoo.xpathproto.TransformTestProtos.MessageEnum.FIRST;
       constantValue_ = "";
       varValue_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasSrc()) {
         memoizedIsInitialized = 0;
@@ -1288,32 +1336,38 @@ public final class TransformTestProtos {
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         output.writeBytes(9, getNestedBytes());
       }
-      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
         output.writeInt64(10, tsUpdate_);
       }
-      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
         output.writeBytes(11, getOptionalValueBytes());
       }
-      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
         output.writeMessage(12, imageByTransform_);
       }
       for (int i = 0; i < imagesByTransform_.size(); i++) {
         output.writeMessage(13, imagesByTransform_.get(i));
       }
-      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
         output.writeMessage(14, imageByHandler_);
       }
       for (int i = 0; i < imagesByHandler_.size(); i++) {
         output.writeMessage(15, imagesByHandler_.get(i));
       }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
         output.writeEnum(16, enumValue_.getNumber());
       }
-      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+      if (((bitField0_ & 0x00008000) == 0x00008000)) {
         output.writeBytes(17, getConstantValueBytes());
       }
-      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+      if (((bitField0_ & 0x00010000) == 0x00010000)) {
         output.writeBytes(18, getVarValueBytes());
+      }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        output.writeEnum(19, enumValueFromInt_.getNumber());
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        output.writeEnum(20, enumValueFromFloat_.getNumber());
       }
       getUnknownFields().writeTo(output);
     }
@@ -1365,15 +1419,15 @@ public final class TransformTestProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(9, getNestedBytes());
       }
-      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(10, tsUpdate_);
       }
-      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(11, getOptionalValueBytes());
       }
-      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(12, imageByTransform_);
       }
@@ -1381,7 +1435,7 @@ public final class TransformTestProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(13, imagesByTransform_.get(i));
       }
-      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(14, imageByHandler_);
       }
@@ -1389,17 +1443,25 @@ public final class TransformTestProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(15, imagesByHandler_.get(i));
       }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(16, enumValue_.getNumber());
       }
-      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+      if (((bitField0_ & 0x00008000) == 0x00008000)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(17, getConstantValueBytes());
       }
-      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+      if (((bitField0_ & 0x00010000) == 0x00010000)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(18, getVarValueBytes());
+      }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(19, enumValueFromInt_.getNumber());
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(20, enumValueFromFloat_.getNumber());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1483,8 +1545,9 @@ public final class TransformTestProtos {
      * Protobuf type {@code proto.transform_test.TransformedMessage}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.yahoo.xpathproto.TransformTestProtos.TransformedMessageOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proto.transform_test.TransformedMessage)
+        com.yahoo.xpathproto.TransformTestProtos.TransformedMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.yahoo.xpathproto.TransformTestProtos.internal_static_proto_transform_test_TransformedMessage_descriptor;
@@ -1539,21 +1602,19 @@ public final class TransformTestProtos {
         bitField0_ = (bitField0_ & ~0x00000080);
         nested_ = "";
         bitField0_ = (bitField0_ & ~0x00000100);
-        enumValue_ = com.yahoo.xpathproto.TransformTestProtos.MessageEnum.FIRST;
-        bitField0_ = (bitField0_ & ~0x00000200);
         tsUpdate_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00000200);
         optionalValue_ = "";
-        bitField0_ = (bitField0_ & ~0x00000800);
+        bitField0_ = (bitField0_ & ~0x00000400);
         if (imageByTransformBuilder_ == null) {
           imageByTransform_ = com.yahoo.xpathproto.TransformTestProtos.ContentImage.getDefaultInstance();
         } else {
           imageByTransformBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00001000);
+        bitField0_ = (bitField0_ & ~0x00000800);
         if (imagesByTransformBuilder_ == null) {
           imagesByTransform_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00002000);
+          bitField0_ = (bitField0_ & ~0x00001000);
         } else {
           imagesByTransformBuilder_.clear();
         }
@@ -1562,17 +1623,23 @@ public final class TransformTestProtos {
         } else {
           imageByHandlerBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00004000);
+        bitField0_ = (bitField0_ & ~0x00002000);
         if (imagesByHandlerBuilder_ == null) {
           imagesByHandler_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00008000);
+          bitField0_ = (bitField0_ & ~0x00004000);
         } else {
           imagesByHandlerBuilder_.clear();
         }
-        constantValue_ = "";
+        enumValue_ = com.yahoo.xpathproto.TransformTestProtos.MessageEnum.FIRST;
+        bitField0_ = (bitField0_ & ~0x00008000);
+        enumValueFromInt_ = com.yahoo.xpathproto.TransformTestProtos.MessageEnum.FIRST;
         bitField0_ = (bitField0_ & ~0x00010000);
-        varValue_ = "";
+        enumValueFromFloat_ = com.yahoo.xpathproto.TransformTestProtos.MessageEnum.FIRST;
         bitField0_ = (bitField0_ & ~0x00020000);
+        constantValue_ = "";
+        bitField0_ = (bitField0_ & ~0x00040000);
+        varValue_ = "";
+        bitField0_ = (bitField0_ & ~0x00080000);
         return this;
       }
 
@@ -1630,8 +1697,7 @@ public final class TransformTestProtos {
         }
         result.boolValue_ = boolValue_;
         if (((bitField0_ & 0x00000080) == 0x00000080)) {
-          strValues_ = new com.google.protobuf.UnmodifiableLazyStringList(
-              strValues_);
+          strValues_ = strValues_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.strValues_ = strValues_;
@@ -1642,17 +1708,13 @@ public final class TransformTestProtos {
         if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
           to_bitField0_ |= 0x00000100;
         }
-        result.enumValue_ = enumValue_;
+        result.tsUpdate_ = tsUpdate_;
         if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
           to_bitField0_ |= 0x00000200;
         }
-        result.tsUpdate_ = tsUpdate_;
+        result.optionalValue_ = optionalValue_;
         if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
           to_bitField0_ |= 0x00000400;
-        }
-        result.optionalValue_ = optionalValue_;
-        if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
-          to_bitField0_ |= 0x00000800;
         }
         if (imageByTransformBuilder_ == null) {
           result.imageByTransform_ = imageByTransform_;
@@ -1660,16 +1722,16 @@ public final class TransformTestProtos {
           result.imageByTransform_ = imageByTransformBuilder_.build();
         }
         if (imagesByTransformBuilder_ == null) {
-          if (((bitField0_ & 0x00002000) == 0x00002000)) {
+          if (((bitField0_ & 0x00001000) == 0x00001000)) {
             imagesByTransform_ = java.util.Collections.unmodifiableList(imagesByTransform_);
-            bitField0_ = (bitField0_ & ~0x00002000);
+            bitField0_ = (bitField0_ & ~0x00001000);
           }
           result.imagesByTransform_ = imagesByTransform_;
         } else {
           result.imagesByTransform_ = imagesByTransformBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00004000) == 0x00004000)) {
-          to_bitField0_ |= 0x00001000;
+        if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
+          to_bitField0_ |= 0x00000800;
         }
         if (imageByHandlerBuilder_ == null) {
           result.imageByHandler_ = imageByHandler_;
@@ -1677,20 +1739,32 @@ public final class TransformTestProtos {
           result.imageByHandler_ = imageByHandlerBuilder_.build();
         }
         if (imagesByHandlerBuilder_ == null) {
-          if (((bitField0_ & 0x00008000) == 0x00008000)) {
+          if (((bitField0_ & 0x00004000) == 0x00004000)) {
             imagesByHandler_ = java.util.Collections.unmodifiableList(imagesByHandler_);
-            bitField0_ = (bitField0_ & ~0x00008000);
+            bitField0_ = (bitField0_ & ~0x00004000);
           }
           result.imagesByHandler_ = imagesByHandler_;
         } else {
           result.imagesByHandler_ = imagesByHandlerBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00008000) == 0x00008000)) {
+          to_bitField0_ |= 0x00001000;
+        }
+        result.enumValue_ = enumValue_;
         if (((from_bitField0_ & 0x00010000) == 0x00010000)) {
           to_bitField0_ |= 0x00002000;
         }
-        result.constantValue_ = constantValue_;
+        result.enumValueFromInt_ = enumValueFromInt_;
         if (((from_bitField0_ & 0x00020000) == 0x00020000)) {
           to_bitField0_ |= 0x00004000;
+        }
+        result.enumValueFromFloat_ = enumValueFromFloat_;
+        if (((from_bitField0_ & 0x00040000) == 0x00040000)) {
+          to_bitField0_ |= 0x00008000;
+        }
+        result.constantValue_ = constantValue_;
+        if (((from_bitField0_ & 0x00080000) == 0x00080000)) {
+          to_bitField0_ |= 0x00010000;
         }
         result.varValue_ = varValue_;
         result.bitField0_ = to_bitField0_;
@@ -1753,14 +1827,11 @@ public final class TransformTestProtos {
           nested_ = other.nested_;
           onChanged();
         }
-        if (other.hasEnumValue()) {
-          setEnumValue(other.getEnumValue());
-        }
         if (other.hasTsUpdate()) {
           setTsUpdate(other.getTsUpdate());
         }
         if (other.hasOptionalValue()) {
-          bitField0_ |= 0x00000800;
+          bitField0_ |= 0x00000400;
           optionalValue_ = other.optionalValue_;
           onChanged();
         }
@@ -1771,7 +1842,7 @@ public final class TransformTestProtos {
           if (!other.imagesByTransform_.isEmpty()) {
             if (imagesByTransform_.isEmpty()) {
               imagesByTransform_ = other.imagesByTransform_;
-              bitField0_ = (bitField0_ & ~0x00002000);
+              bitField0_ = (bitField0_ & ~0x00001000);
             } else {
               ensureImagesByTransformIsMutable();
               imagesByTransform_.addAll(other.imagesByTransform_);
@@ -1784,7 +1855,7 @@ public final class TransformTestProtos {
               imagesByTransformBuilder_.dispose();
               imagesByTransformBuilder_ = null;
               imagesByTransform_ = other.imagesByTransform_;
-              bitField0_ = (bitField0_ & ~0x00002000);
+              bitField0_ = (bitField0_ & ~0x00001000);
               imagesByTransformBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getImagesByTransformFieldBuilder() : null;
@@ -1800,7 +1871,7 @@ public final class TransformTestProtos {
           if (!other.imagesByHandler_.isEmpty()) {
             if (imagesByHandler_.isEmpty()) {
               imagesByHandler_ = other.imagesByHandler_;
-              bitField0_ = (bitField0_ & ~0x00008000);
+              bitField0_ = (bitField0_ & ~0x00004000);
             } else {
               ensureImagesByHandlerIsMutable();
               imagesByHandler_.addAll(other.imagesByHandler_);
@@ -1813,7 +1884,7 @@ public final class TransformTestProtos {
               imagesByHandlerBuilder_.dispose();
               imagesByHandlerBuilder_ = null;
               imagesByHandler_ = other.imagesByHandler_;
-              bitField0_ = (bitField0_ & ~0x00008000);
+              bitField0_ = (bitField0_ & ~0x00004000);
               imagesByHandlerBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getImagesByHandlerFieldBuilder() : null;
@@ -1822,13 +1893,22 @@ public final class TransformTestProtos {
             }
           }
         }
+        if (other.hasEnumValue()) {
+          setEnumValue(other.getEnumValue());
+        }
+        if (other.hasEnumValueFromInt()) {
+          setEnumValueFromInt(other.getEnumValueFromInt());
+        }
+        if (other.hasEnumValueFromFloat()) {
+          setEnumValueFromFloat(other.getEnumValueFromFloat());
+        }
         if (other.hasConstantValue()) {
-          bitField0_ |= 0x00010000;
+          bitField0_ |= 0x00040000;
           constantValue_ = other.constantValue_;
           onChanged();
         }
         if (other.hasVarValue()) {
-          bitField0_ |= 0x00020000;
+          bitField0_ |= 0x00080000;
           varValue_ = other.varValue_;
           onChanged();
         }
@@ -1927,7 +2007,6 @@ public final class TransformTestProtos {
       }
       private int bitField0_;
 
-      // required string src = 1;
       private java.lang.Object src_ = "";
       /**
        * <code>required string src = 1;</code>
@@ -1941,9 +2020,12 @@ public final class TransformTestProtos {
       public java.lang.String getSrc() {
         java.lang.Object ref = src_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          src_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            src_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -2001,7 +2083,6 @@ public final class TransformTestProtos {
         return this;
       }
 
-      // required string var_src = 2;
       private java.lang.Object varSrc_ = "";
       /**
        * <code>required string var_src = 2;</code>
@@ -2015,9 +2096,12 @@ public final class TransformTestProtos {
       public java.lang.String getVarSrc() {
         java.lang.Object ref = varSrc_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          varSrc_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            varSrc_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -2075,7 +2159,6 @@ public final class TransformTestProtos {
         return this;
       }
 
-      // required string src_path = 3;
       private java.lang.Object srcPath_ = "";
       /**
        * <code>required string src_path = 3;</code>
@@ -2089,9 +2172,12 @@ public final class TransformTestProtos {
       public java.lang.String getSrcPath() {
         java.lang.Object ref = srcPath_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          srcPath_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            srcPath_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -2149,7 +2235,6 @@ public final class TransformTestProtos {
         return this;
       }
 
-      // required string string_value = 4;
       private java.lang.Object stringValue_ = "";
       /**
        * <code>required string string_value = 4;</code>
@@ -2163,9 +2248,12 @@ public final class TransformTestProtos {
       public java.lang.String getStringValue() {
         java.lang.Object ref = stringValue_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          stringValue_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            stringValue_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -2223,7 +2311,6 @@ public final class TransformTestProtos {
         return this;
       }
 
-      // required int32 int_value = 5;
       private int intValue_ ;
       /**
        * <code>required int32 int_value = 5;</code>
@@ -2256,7 +2343,6 @@ public final class TransformTestProtos {
         return this;
       }
 
-      // required int64 long_value = 6;
       private long longValue_ ;
       /**
        * <code>required int64 long_value = 6;</code>
@@ -2289,7 +2375,6 @@ public final class TransformTestProtos {
         return this;
       }
 
-      // required bool bool_value = 7;
       private boolean boolValue_ ;
       /**
        * <code>required bool bool_value = 7;</code>
@@ -2322,7 +2407,6 @@ public final class TransformTestProtos {
         return this;
       }
 
-      // repeated string str_values = 8;
       private com.google.protobuf.LazyStringList strValues_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureStrValuesIsMutable() {
         if (!((bitField0_ & 0x00000080) == 0x00000080)) {
@@ -2333,9 +2417,9 @@ public final class TransformTestProtos {
       /**
        * <code>repeated string str_values = 8;</code>
        */
-      public java.util.List<java.lang.String>
+      public com.google.protobuf.ProtocolStringList
           getStrValuesList() {
-        return java.util.Collections.unmodifiableList(strValues_);
+        return strValues_.getUnmodifiableView();
       }
       /**
        * <code>repeated string str_values = 8;</code>
@@ -2388,7 +2472,8 @@ public final class TransformTestProtos {
       public Builder addAllStrValues(
           java.lang.Iterable<java.lang.String> values) {
         ensureStrValuesIsMutable();
-        super.addAll(values, strValues_);
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, strValues_);
         onChanged();
         return this;
       }
@@ -2415,7 +2500,6 @@ public final class TransformTestProtos {
         return this;
       }
 
-      // required string nested = 9;
       private java.lang.Object nested_ = "";
       /**
        * <code>required string nested = 9;</code>
@@ -2429,9 +2513,12 @@ public final class TransformTestProtos {
       public java.lang.String getNested() {
         java.lang.Object ref = nested_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          nested_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            nested_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -2489,49 +2576,12 @@ public final class TransformTestProtos {
         return this;
       }
 
-      // optional .proto.transform_test.MessageEnum enum_value = 16;
-      private com.yahoo.xpathproto.TransformTestProtos.MessageEnum enumValue_ = com.yahoo.xpathproto.TransformTestProtos.MessageEnum.FIRST;
-      /**
-       * <code>optional .proto.transform_test.MessageEnum enum_value = 16;</code>
-       */
-      public boolean hasEnumValue() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
-      }
-      /**
-       * <code>optional .proto.transform_test.MessageEnum enum_value = 16;</code>
-       */
-      public com.yahoo.xpathproto.TransformTestProtos.MessageEnum getEnumValue() {
-        return enumValue_;
-      }
-      /**
-       * <code>optional .proto.transform_test.MessageEnum enum_value = 16;</code>
-       */
-      public Builder setEnumValue(com.yahoo.xpathproto.TransformTestProtos.MessageEnum value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000200;
-        enumValue_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional .proto.transform_test.MessageEnum enum_value = 16;</code>
-       */
-      public Builder clearEnumValue() {
-        bitField0_ = (bitField0_ & ~0x00000200);
-        enumValue_ = com.yahoo.xpathproto.TransformTestProtos.MessageEnum.FIRST;
-        onChanged();
-        return this;
-      }
-
-      // required int64 ts_update = 10;
       private long tsUpdate_ ;
       /**
        * <code>required int64 ts_update = 10;</code>
        */
       public boolean hasTsUpdate() {
-        return ((bitField0_ & 0x00000400) == 0x00000400);
+        return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
        * <code>required int64 ts_update = 10;</code>
@@ -2543,7 +2593,7 @@ public final class TransformTestProtos {
        * <code>required int64 ts_update = 10;</code>
        */
       public Builder setTsUpdate(long value) {
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00000200;
         tsUpdate_ = value;
         onChanged();
         return this;
@@ -2552,19 +2602,18 @@ public final class TransformTestProtos {
        * <code>required int64 ts_update = 10;</code>
        */
       public Builder clearTsUpdate() {
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00000200);
         tsUpdate_ = 0L;
         onChanged();
         return this;
       }
 
-      // optional string optional_value = 11;
       private java.lang.Object optionalValue_ = "";
       /**
        * <code>optional string optional_value = 11;</code>
        */
       public boolean hasOptionalValue() {
-        return ((bitField0_ & 0x00000800) == 0x00000800);
+        return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
        * <code>optional string optional_value = 11;</code>
@@ -2572,9 +2621,12 @@ public final class TransformTestProtos {
       public java.lang.String getOptionalValue() {
         java.lang.Object ref = optionalValue_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          optionalValue_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            optionalValue_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -2604,7 +2656,7 @@ public final class TransformTestProtos {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000800;
+  bitField0_ |= 0x00000400;
         optionalValue_ = value;
         onChanged();
         return this;
@@ -2613,7 +2665,7 @@ public final class TransformTestProtos {
        * <code>optional string optional_value = 11;</code>
        */
       public Builder clearOptionalValue() {
-        bitField0_ = (bitField0_ & ~0x00000800);
+        bitField0_ = (bitField0_ & ~0x00000400);
         optionalValue_ = getDefaultInstance().getOptionalValue();
         onChanged();
         return this;
@@ -2626,13 +2678,12 @@ public final class TransformTestProtos {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000800;
+  bitField0_ |= 0x00000400;
         optionalValue_ = value;
         onChanged();
         return this;
       }
 
-      // optional .proto.transform_test.ContentImage image_by_transform = 12;
       private com.yahoo.xpathproto.TransformTestProtos.ContentImage imageByTransform_ = com.yahoo.xpathproto.TransformTestProtos.ContentImage.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.yahoo.xpathproto.TransformTestProtos.ContentImage, com.yahoo.xpathproto.TransformTestProtos.ContentImage.Builder, com.yahoo.xpathproto.TransformTestProtos.ContentImageOrBuilder> imageByTransformBuilder_;
@@ -2640,7 +2691,7 @@ public final class TransformTestProtos {
        * <code>optional .proto.transform_test.ContentImage image_by_transform = 12;</code>
        */
       public boolean hasImageByTransform() {
-        return ((bitField0_ & 0x00001000) == 0x00001000);
+        return ((bitField0_ & 0x00000800) == 0x00000800);
       }
       /**
        * <code>optional .proto.transform_test.ContentImage image_by_transform = 12;</code>
@@ -2665,7 +2716,7 @@ public final class TransformTestProtos {
         } else {
           imageByTransformBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00001000;
+        bitField0_ |= 0x00000800;
         return this;
       }
       /**
@@ -2679,7 +2730,7 @@ public final class TransformTestProtos {
         } else {
           imageByTransformBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00001000;
+        bitField0_ |= 0x00000800;
         return this;
       }
       /**
@@ -2687,7 +2738,7 @@ public final class TransformTestProtos {
        */
       public Builder mergeImageByTransform(com.yahoo.xpathproto.TransformTestProtos.ContentImage value) {
         if (imageByTransformBuilder_ == null) {
-          if (((bitField0_ & 0x00001000) == 0x00001000) &&
+          if (((bitField0_ & 0x00000800) == 0x00000800) &&
               imageByTransform_ != com.yahoo.xpathproto.TransformTestProtos.ContentImage.getDefaultInstance()) {
             imageByTransform_ =
               com.yahoo.xpathproto.TransformTestProtos.ContentImage.newBuilder(imageByTransform_).mergeFrom(value).buildPartial();
@@ -2698,7 +2749,7 @@ public final class TransformTestProtos {
         } else {
           imageByTransformBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00001000;
+        bitField0_ |= 0x00000800;
         return this;
       }
       /**
@@ -2711,14 +2762,14 @@ public final class TransformTestProtos {
         } else {
           imageByTransformBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00001000);
+        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
       /**
        * <code>optional .proto.transform_test.ContentImage image_by_transform = 12;</code>
        */
       public com.yahoo.xpathproto.TransformTestProtos.ContentImage.Builder getImageByTransformBuilder() {
-        bitField0_ |= 0x00001000;
+        bitField0_ |= 0x00000800;
         onChanged();
         return getImageByTransformFieldBuilder().getBuilder();
       }
@@ -2741,7 +2792,7 @@ public final class TransformTestProtos {
         if (imageByTransformBuilder_ == null) {
           imageByTransformBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.yahoo.xpathproto.TransformTestProtos.ContentImage, com.yahoo.xpathproto.TransformTestProtos.ContentImage.Builder, com.yahoo.xpathproto.TransformTestProtos.ContentImageOrBuilder>(
-                  imageByTransform_,
+                  getImageByTransform(),
                   getParentForChildren(),
                   isClean());
           imageByTransform_ = null;
@@ -2749,13 +2800,12 @@ public final class TransformTestProtos {
         return imageByTransformBuilder_;
       }
 
-      // repeated .proto.transform_test.ContentImage images_by_transform = 13;
       private java.util.List<com.yahoo.xpathproto.TransformTestProtos.ContentImage> imagesByTransform_ =
         java.util.Collections.emptyList();
       private void ensureImagesByTransformIsMutable() {
-        if (!((bitField0_ & 0x00002000) == 0x00002000)) {
+        if (!((bitField0_ & 0x00001000) == 0x00001000)) {
           imagesByTransform_ = new java.util.ArrayList<com.yahoo.xpathproto.TransformTestProtos.ContentImage>(imagesByTransform_);
-          bitField0_ |= 0x00002000;
+          bitField0_ |= 0x00001000;
          }
       }
 
@@ -2891,7 +2941,8 @@ public final class TransformTestProtos {
           java.lang.Iterable<? extends com.yahoo.xpathproto.TransformTestProtos.ContentImage> values) {
         if (imagesByTransformBuilder_ == null) {
           ensureImagesByTransformIsMutable();
-          super.addAll(values, imagesByTransform_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, imagesByTransform_);
           onChanged();
         } else {
           imagesByTransformBuilder_.addAllMessages(values);
@@ -2904,7 +2955,7 @@ public final class TransformTestProtos {
       public Builder clearImagesByTransform() {
         if (imagesByTransformBuilder_ == null) {
           imagesByTransform_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00002000);
+          bitField0_ = (bitField0_ & ~0x00001000);
           onChanged();
         } else {
           imagesByTransformBuilder_.clear();
@@ -2981,7 +3032,7 @@ public final class TransformTestProtos {
           imagesByTransformBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               com.yahoo.xpathproto.TransformTestProtos.ContentImage, com.yahoo.xpathproto.TransformTestProtos.ContentImage.Builder, com.yahoo.xpathproto.TransformTestProtos.ContentImageOrBuilder>(
                   imagesByTransform_,
-                  ((bitField0_ & 0x00002000) == 0x00002000),
+                  ((bitField0_ & 0x00001000) == 0x00001000),
                   getParentForChildren(),
                   isClean());
           imagesByTransform_ = null;
@@ -2989,7 +3040,6 @@ public final class TransformTestProtos {
         return imagesByTransformBuilder_;
       }
 
-      // optional .proto.transform_test.ContentImage image_by_handler = 14;
       private com.yahoo.xpathproto.TransformTestProtos.ContentImage imageByHandler_ = com.yahoo.xpathproto.TransformTestProtos.ContentImage.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.yahoo.xpathproto.TransformTestProtos.ContentImage, com.yahoo.xpathproto.TransformTestProtos.ContentImage.Builder, com.yahoo.xpathproto.TransformTestProtos.ContentImageOrBuilder> imageByHandlerBuilder_;
@@ -2997,7 +3047,7 @@ public final class TransformTestProtos {
        * <code>optional .proto.transform_test.ContentImage image_by_handler = 14;</code>
        */
       public boolean hasImageByHandler() {
-        return ((bitField0_ & 0x00004000) == 0x00004000);
+        return ((bitField0_ & 0x00002000) == 0x00002000);
       }
       /**
        * <code>optional .proto.transform_test.ContentImage image_by_handler = 14;</code>
@@ -3022,7 +3072,7 @@ public final class TransformTestProtos {
         } else {
           imageByHandlerBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00004000;
+        bitField0_ |= 0x00002000;
         return this;
       }
       /**
@@ -3036,7 +3086,7 @@ public final class TransformTestProtos {
         } else {
           imageByHandlerBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00004000;
+        bitField0_ |= 0x00002000;
         return this;
       }
       /**
@@ -3044,7 +3094,7 @@ public final class TransformTestProtos {
        */
       public Builder mergeImageByHandler(com.yahoo.xpathproto.TransformTestProtos.ContentImage value) {
         if (imageByHandlerBuilder_ == null) {
-          if (((bitField0_ & 0x00004000) == 0x00004000) &&
+          if (((bitField0_ & 0x00002000) == 0x00002000) &&
               imageByHandler_ != com.yahoo.xpathproto.TransformTestProtos.ContentImage.getDefaultInstance()) {
             imageByHandler_ =
               com.yahoo.xpathproto.TransformTestProtos.ContentImage.newBuilder(imageByHandler_).mergeFrom(value).buildPartial();
@@ -3055,7 +3105,7 @@ public final class TransformTestProtos {
         } else {
           imageByHandlerBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00004000;
+        bitField0_ |= 0x00002000;
         return this;
       }
       /**
@@ -3068,14 +3118,14 @@ public final class TransformTestProtos {
         } else {
           imageByHandlerBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00004000);
+        bitField0_ = (bitField0_ & ~0x00002000);
         return this;
       }
       /**
        * <code>optional .proto.transform_test.ContentImage image_by_handler = 14;</code>
        */
       public com.yahoo.xpathproto.TransformTestProtos.ContentImage.Builder getImageByHandlerBuilder() {
-        bitField0_ |= 0x00004000;
+        bitField0_ |= 0x00002000;
         onChanged();
         return getImageByHandlerFieldBuilder().getBuilder();
       }
@@ -3098,7 +3148,7 @@ public final class TransformTestProtos {
         if (imageByHandlerBuilder_ == null) {
           imageByHandlerBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.yahoo.xpathproto.TransformTestProtos.ContentImage, com.yahoo.xpathproto.TransformTestProtos.ContentImage.Builder, com.yahoo.xpathproto.TransformTestProtos.ContentImageOrBuilder>(
-                  imageByHandler_,
+                  getImageByHandler(),
                   getParentForChildren(),
                   isClean());
           imageByHandler_ = null;
@@ -3106,13 +3156,12 @@ public final class TransformTestProtos {
         return imageByHandlerBuilder_;
       }
 
-      // repeated .proto.transform_test.ContentImage images_by_handler = 15;
       private java.util.List<com.yahoo.xpathproto.TransformTestProtos.ContentImage> imagesByHandler_ =
         java.util.Collections.emptyList();
       private void ensureImagesByHandlerIsMutable() {
-        if (!((bitField0_ & 0x00008000) == 0x00008000)) {
+        if (!((bitField0_ & 0x00004000) == 0x00004000)) {
           imagesByHandler_ = new java.util.ArrayList<com.yahoo.xpathproto.TransformTestProtos.ContentImage>(imagesByHandler_);
-          bitField0_ |= 0x00008000;
+          bitField0_ |= 0x00004000;
          }
       }
 
@@ -3248,7 +3297,8 @@ public final class TransformTestProtos {
           java.lang.Iterable<? extends com.yahoo.xpathproto.TransformTestProtos.ContentImage> values) {
         if (imagesByHandlerBuilder_ == null) {
           ensureImagesByHandlerIsMutable();
-          super.addAll(values, imagesByHandler_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, imagesByHandler_);
           onChanged();
         } else {
           imagesByHandlerBuilder_.addAllMessages(values);
@@ -3261,7 +3311,7 @@ public final class TransformTestProtos {
       public Builder clearImagesByHandler() {
         if (imagesByHandlerBuilder_ == null) {
           imagesByHandler_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00008000);
+          bitField0_ = (bitField0_ & ~0x00004000);
           onChanged();
         } else {
           imagesByHandlerBuilder_.clear();
@@ -3338,7 +3388,7 @@ public final class TransformTestProtos {
           imagesByHandlerBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               com.yahoo.xpathproto.TransformTestProtos.ContentImage, com.yahoo.xpathproto.TransformTestProtos.ContentImage.Builder, com.yahoo.xpathproto.TransformTestProtos.ContentImageOrBuilder>(
                   imagesByHandler_,
-                  ((bitField0_ & 0x00008000) == 0x00008000),
+                  ((bitField0_ & 0x00004000) == 0x00004000),
                   getParentForChildren(),
                   isClean());
           imagesByHandler_ = null;
@@ -3346,13 +3396,117 @@ public final class TransformTestProtos {
         return imagesByHandlerBuilder_;
       }
 
-      // required string constant_value = 17;
+      private com.yahoo.xpathproto.TransformTestProtos.MessageEnum enumValue_ = com.yahoo.xpathproto.TransformTestProtos.MessageEnum.FIRST;
+      /**
+       * <code>optional .proto.transform_test.MessageEnum enum_value = 16;</code>
+       */
+      public boolean hasEnumValue() {
+        return ((bitField0_ & 0x00008000) == 0x00008000);
+      }
+      /**
+       * <code>optional .proto.transform_test.MessageEnum enum_value = 16;</code>
+       */
+      public com.yahoo.xpathproto.TransformTestProtos.MessageEnum getEnumValue() {
+        return enumValue_;
+      }
+      /**
+       * <code>optional .proto.transform_test.MessageEnum enum_value = 16;</code>
+       */
+      public Builder setEnumValue(com.yahoo.xpathproto.TransformTestProtos.MessageEnum value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00008000;
+        enumValue_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .proto.transform_test.MessageEnum enum_value = 16;</code>
+       */
+      public Builder clearEnumValue() {
+        bitField0_ = (bitField0_ & ~0x00008000);
+        enumValue_ = com.yahoo.xpathproto.TransformTestProtos.MessageEnum.FIRST;
+        onChanged();
+        return this;
+      }
+
+      private com.yahoo.xpathproto.TransformTestProtos.MessageEnum enumValueFromInt_ = com.yahoo.xpathproto.TransformTestProtos.MessageEnum.FIRST;
+      /**
+       * <code>optional .proto.transform_test.MessageEnum enum_value_from_int = 19;</code>
+       */
+      public boolean hasEnumValueFromInt() {
+        return ((bitField0_ & 0x00010000) == 0x00010000);
+      }
+      /**
+       * <code>optional .proto.transform_test.MessageEnum enum_value_from_int = 19;</code>
+       */
+      public com.yahoo.xpathproto.TransformTestProtos.MessageEnum getEnumValueFromInt() {
+        return enumValueFromInt_;
+      }
+      /**
+       * <code>optional .proto.transform_test.MessageEnum enum_value_from_int = 19;</code>
+       */
+      public Builder setEnumValueFromInt(com.yahoo.xpathproto.TransformTestProtos.MessageEnum value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00010000;
+        enumValueFromInt_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .proto.transform_test.MessageEnum enum_value_from_int = 19;</code>
+       */
+      public Builder clearEnumValueFromInt() {
+        bitField0_ = (bitField0_ & ~0x00010000);
+        enumValueFromInt_ = com.yahoo.xpathproto.TransformTestProtos.MessageEnum.FIRST;
+        onChanged();
+        return this;
+      }
+
+      private com.yahoo.xpathproto.TransformTestProtos.MessageEnum enumValueFromFloat_ = com.yahoo.xpathproto.TransformTestProtos.MessageEnum.FIRST;
+      /**
+       * <code>optional .proto.transform_test.MessageEnum enum_value_from_float = 20;</code>
+       */
+      public boolean hasEnumValueFromFloat() {
+        return ((bitField0_ & 0x00020000) == 0x00020000);
+      }
+      /**
+       * <code>optional .proto.transform_test.MessageEnum enum_value_from_float = 20;</code>
+       */
+      public com.yahoo.xpathproto.TransformTestProtos.MessageEnum getEnumValueFromFloat() {
+        return enumValueFromFloat_;
+      }
+      /**
+       * <code>optional .proto.transform_test.MessageEnum enum_value_from_float = 20;</code>
+       */
+      public Builder setEnumValueFromFloat(com.yahoo.xpathproto.TransformTestProtos.MessageEnum value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00020000;
+        enumValueFromFloat_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .proto.transform_test.MessageEnum enum_value_from_float = 20;</code>
+       */
+      public Builder clearEnumValueFromFloat() {
+        bitField0_ = (bitField0_ & ~0x00020000);
+        enumValueFromFloat_ = com.yahoo.xpathproto.TransformTestProtos.MessageEnum.FIRST;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object constantValue_ = "";
       /**
        * <code>required string constant_value = 17;</code>
        */
       public boolean hasConstantValue() {
-        return ((bitField0_ & 0x00010000) == 0x00010000);
+        return ((bitField0_ & 0x00040000) == 0x00040000);
       }
       /**
        * <code>required string constant_value = 17;</code>
@@ -3360,9 +3514,12 @@ public final class TransformTestProtos {
       public java.lang.String getConstantValue() {
         java.lang.Object ref = constantValue_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          constantValue_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            constantValue_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -3392,7 +3549,7 @@ public final class TransformTestProtos {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00010000;
+  bitField0_ |= 0x00040000;
         constantValue_ = value;
         onChanged();
         return this;
@@ -3401,7 +3558,7 @@ public final class TransformTestProtos {
        * <code>required string constant_value = 17;</code>
        */
       public Builder clearConstantValue() {
-        bitField0_ = (bitField0_ & ~0x00010000);
+        bitField0_ = (bitField0_ & ~0x00040000);
         constantValue_ = getDefaultInstance().getConstantValue();
         onChanged();
         return this;
@@ -3414,19 +3571,18 @@ public final class TransformTestProtos {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00010000;
+  bitField0_ |= 0x00040000;
         constantValue_ = value;
         onChanged();
         return this;
       }
 
-      // required string var_value = 18;
       private java.lang.Object varValue_ = "";
       /**
        * <code>required string var_value = 18;</code>
        */
       public boolean hasVarValue() {
-        return ((bitField0_ & 0x00020000) == 0x00020000);
+        return ((bitField0_ & 0x00080000) == 0x00080000);
       }
       /**
        * <code>required string var_value = 18;</code>
@@ -3434,9 +3590,12 @@ public final class TransformTestProtos {
       public java.lang.String getVarValue() {
         java.lang.Object ref = varValue_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          varValue_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            varValue_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -3466,7 +3625,7 @@ public final class TransformTestProtos {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00020000;
+  bitField0_ |= 0x00080000;
         varValue_ = value;
         onChanged();
         return this;
@@ -3475,7 +3634,7 @@ public final class TransformTestProtos {
        * <code>required string var_value = 18;</code>
        */
       public Builder clearVarValue() {
-        bitField0_ = (bitField0_ & ~0x00020000);
+        bitField0_ = (bitField0_ & ~0x00080000);
         varValue_ = getDefaultInstance().getVarValue();
         onChanged();
         return this;
@@ -3488,7 +3647,7 @@ public final class TransformTestProtos {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00020000;
+  bitField0_ |= 0x00080000;
         varValue_ = value;
         onChanged();
         return this;
@@ -3505,10 +3664,10 @@ public final class TransformTestProtos {
     // @@protoc_insertion_point(class_scope:proto.transform_test.TransformedMessage)
   }
 
-  public interface ContentImageOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ContentImageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proto.transform_test.ContentImage)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string url = 1;
     /**
      * <code>required string url = 1;</code>
      */
@@ -3523,7 +3682,6 @@ public final class TransformTestProtos {
     com.google.protobuf.ByteString
         getUrlBytes();
 
-    // optional string type = 2;
     /**
      * <code>optional string type = 2;</code>
      */
@@ -3538,7 +3696,6 @@ public final class TransformTestProtos {
     com.google.protobuf.ByteString
         getTypeBytes();
 
-    // optional uint32 width = 5;
     /**
      * <code>optional uint32 width = 5;</code>
      */
@@ -3548,7 +3705,6 @@ public final class TransformTestProtos {
      */
     int getWidth();
 
-    // optional uint32 height = 6;
     /**
      * <code>optional uint32 height = 6;</code>
      */
@@ -3562,8 +3718,9 @@ public final class TransformTestProtos {
    * Protobuf type {@code proto.transform_test.ContentImage}
    */
   public static final class ContentImage extends
-      com.google.protobuf.GeneratedMessage
-      implements ContentImageOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:proto.transform_test.ContentImage)
+      ContentImageOrBuilder {
     // Use ContentImage.newBuilder() to construct.
     private ContentImage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -3610,13 +3767,15 @@ public final class TransformTestProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              url_ = input.readBytes();
+              url_ = bs;
               break;
             }
             case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              type_ = input.readBytes();
+              type_ = bs;
               break;
             }
             case 40: {
@@ -3669,7 +3828,6 @@ public final class TransformTestProtos {
     }
 
     private int bitField0_;
-    // required string url = 1;
     public static final int URL_FIELD_NUMBER = 1;
     private java.lang.Object url_;
     /**
@@ -3712,7 +3870,6 @@ public final class TransformTestProtos {
       }
     }
 
-    // optional string type = 2;
     public static final int TYPE_FIELD_NUMBER = 2;
     private java.lang.Object type_;
     /**
@@ -3755,7 +3912,6 @@ public final class TransformTestProtos {
       }
     }
 
-    // optional uint32 width = 5;
     public static final int WIDTH_FIELD_NUMBER = 5;
     private int width_;
     /**
@@ -3771,7 +3927,6 @@ public final class TransformTestProtos {
       return width_;
     }
 
-    // optional uint32 height = 6;
     public static final int HEIGHT_FIELD_NUMBER = 6;
     private int height_;
     /**
@@ -3796,7 +3951,8 @@ public final class TransformTestProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasUrl()) {
         memoizedIsInitialized = 0;
@@ -3928,8 +4084,9 @@ public final class TransformTestProtos {
      * Protobuf type {@code proto.transform_test.ContentImage}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.yahoo.xpathproto.TransformTestProtos.ContentImageOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proto.transform_test.ContentImage)
+        com.yahoo.xpathproto.TransformTestProtos.ContentImageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.yahoo.xpathproto.TransformTestProtos.internal_static_proto_transform_test_ContentImage_descriptor;
@@ -4077,7 +4234,6 @@ public final class TransformTestProtos {
       }
       private int bitField0_;
 
-      // required string url = 1;
       private java.lang.Object url_ = "";
       /**
        * <code>required string url = 1;</code>
@@ -4091,9 +4247,12 @@ public final class TransformTestProtos {
       public java.lang.String getUrl() {
         java.lang.Object ref = url_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          url_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            url_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -4151,7 +4310,6 @@ public final class TransformTestProtos {
         return this;
       }
 
-      // optional string type = 2;
       private java.lang.Object type_ = "";
       /**
        * <code>optional string type = 2;</code>
@@ -4165,9 +4323,12 @@ public final class TransformTestProtos {
       public java.lang.String getType() {
         java.lang.Object ref = type_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          type_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            type_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -4225,7 +4386,6 @@ public final class TransformTestProtos {
         return this;
       }
 
-      // optional uint32 width = 5;
       private int width_ ;
       /**
        * <code>optional uint32 width = 5;</code>
@@ -4258,7 +4418,6 @@ public final class TransformTestProtos {
         return this;
       }
 
-      // optional uint32 height = 6;
       private int height_ ;
       /**
        * <code>optional uint32 height = 6;</code>
@@ -4302,12 +4461,12 @@ public final class TransformTestProtos {
     // @@protoc_insertion_point(class_scope:proto.transform_test.ContentImage)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_proto_transform_test_TransformedMessage_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_proto_transform_test_TransformedMessage_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_proto_transform_test_ContentImage_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -4322,50 +4481,54 @@ public final class TransformTestProtos {
   static {
     java.lang.String[] descriptorData = {
       "\n\024transform_test.proto\022\024proto.transform_" +
-      "test\"\304\004\n\022TransformedMessage\022\013\n\003src\030\001 \002(\t" +
+      "test\"\306\005\n\022TransformedMessage\022\013\n\003src\030\001 \002(\t" +
       "\022\017\n\007var_src\030\002 \002(\t\022\020\n\010src_path\030\003 \002(\t\022\024\n\014s" +
       "tring_value\030\004 \002(\t\022\021\n\tint_value\030\005 \002(\005\022\022\n\n" +
       "long_value\030\006 \002(\003\022\022\n\nbool_value\030\007 \002(\010\022\022\n\n" +
-      "str_values\030\010 \003(\t\022\016\n\006nested\030\t \002(\t\0225\n\nenum" +
-      "_value\030\020 \001(\0162!.proto.transform_test.Mess" +
-      "ageEnum\022\021\n\tts_update\030\n \002(\003\022\026\n\016optional_v" +
-      "alue\030\013 \001(\t\022>\n\022image_by_transform\030\014 \001(\0132\"" +
-      ".proto.transform_test.ContentImage\022?\n\023im",
-      "ages_by_transform\030\r \003(\0132\".proto.transfor" +
-      "m_test.ContentImage\022<\n\020image_by_handler\030" +
-      "\016 \001(\0132\".proto.transform_test.ContentImag" +
-      "e\022=\n\021images_by_handler\030\017 \003(\0132\".proto.tra" +
-      "nsform_test.ContentImage\022\026\n\016constant_val" +
-      "ue\030\021 \002(\t\022\021\n\tvar_value\030\022 \002(\t\"H\n\014ContentIm" +
-      "age\022\013\n\003url\030\001 \002(\t\022\014\n\004type\030\002 \001(\t\022\r\n\005width\030" +
-      "\005 \001(\r\022\016\n\006height\030\006 \001(\r*/\n\013MessageEnum\022\t\n\005" +
-      "FIRST\020\001\022\n\n\006SECOND\020\002\022\t\n\005THIRD\020\003B+\n\024com.ya" +
-      "hoo.xpathprotoB\023TransformTestProtos"
+      "str_values\030\010 \003(\t\022\016\n\006nested\030\t \002(\t\022\021\n\tts_u" +
+      "pdate\030\n \002(\003\022\026\n\016optional_value\030\013 \001(\t\022>\n\022i" +
+      "mage_by_transform\030\014 \001(\0132\".proto.transfor" +
+      "m_test.ContentImage\022?\n\023images_by_transfo" +
+      "rm\030\r \003(\0132\".proto.transform_test.ContentI",
+      "mage\022<\n\020image_by_handler\030\016 \001(\0132\".proto.t" +
+      "ransform_test.ContentImage\022=\n\021images_by_" +
+      "handler\030\017 \003(\0132\".proto.transform_test.Con" +
+      "tentImage\0225\n\nenum_value\030\020 \001(\0162!.proto.tr" +
+      "ansform_test.MessageEnum\022>\n\023enum_value_f" +
+      "rom_int\030\023 \001(\0162!.proto.transform_test.Mes" +
+      "sageEnum\022@\n\025enum_value_from_float\030\024 \001(\0162" +
+      "!.proto.transform_test.MessageEnum\022\026\n\016co" +
+      "nstant_value\030\021 \002(\t\022\021\n\tvar_value\030\022 \002(\t\"H\n" +
+      "\014ContentImage\022\013\n\003url\030\001 \002(\t\022\014\n\004type\030\002 \001(\t",
+      "\022\r\n\005width\030\005 \001(\r\022\016\n\006height\030\006 \001(\r*/\n\013Messa" +
+      "geEnum\022\t\n\005FIRST\020\001\022\n\n\006SECOND\020\002\022\t\n\005THIRD\020\003" +
+      "B+\n\024com.yahoo.xpathprotoB\023TransformTestP" +
+      "rotos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_proto_transform_test_TransformedMessage_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_proto_transform_test_TransformedMessage_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_proto_transform_test_TransformedMessage_descriptor,
-              new java.lang.String[] { "Src", "VarSrc", "SrcPath", "StringValue", "IntValue", "LongValue", "BoolValue", "StrValues", "Nested", "EnumValue", "TsUpdate", "OptionalValue", "ImageByTransform", "ImagesByTransform", "ImageByHandler", "ImagesByHandler", "ConstantValue", "VarValue", });
-          internal_static_proto_transform_test_ContentImage_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_proto_transform_test_ContentImage_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_proto_transform_test_ContentImage_descriptor,
-              new java.lang.String[] { "Url", "Type", "Width", "Height", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
+    internal_static_proto_transform_test_TransformedMessage_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_proto_transform_test_TransformedMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_proto_transform_test_TransformedMessage_descriptor,
+        new java.lang.String[] { "Src", "VarSrc", "SrcPath", "StringValue", "IntValue", "LongValue", "BoolValue", "StrValues", "Nested", "TsUpdate", "OptionalValue", "ImageByTransform", "ImagesByTransform", "ImageByHandler", "ImagesByHandler", "EnumValue", "EnumValueFromInt", "EnumValueFromFloat", "ConstantValue", "VarValue", });
+    internal_static_proto_transform_test_ContentImage_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_proto_transform_test_ContentImage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_proto_transform_test_ContentImage_descriptor,
+        new java.lang.String[] { "Url", "Type", "Width", "Height", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
