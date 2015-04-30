@@ -9,6 +9,8 @@
   "bool_value": true,
 
   "enum_value": "FIRST",
+  "enum_value_from_int" : 3,
+  "enum_value_from_float" : 3.5,
   "str_values": ["v1", "v2"],
 
   "select": {

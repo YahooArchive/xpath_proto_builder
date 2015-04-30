@@ -1,18 +1,13 @@
 /*
-Copyright 2014 Yahoo! Inc.
-Copyrights licensed under the BSD License. See the accompanying LICENSE file for terms.
-*/
+ * Copyright 2014 Yahoo! Inc. Copyrights licensed under the BSD License. See the accompanying LICENSE file for terms.
+ */
 
 package com.yahoo.xpathproto;
 
 import org.apache.commons.jxpath.JXPathContext;
 import org.apache.commons.jxpath.Pointer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Iterator;
-
-import com.google.protobuf.WireFormat.FieldType;
 
 import com.google.protobuf.Descriptors;
 import com.google.protobuf.Message.Builder;
@@ -58,8 +53,8 @@ public class JXPathCopier {
         return this;
     }
 
-    public JXPathCopier copyScalarObject(
-        final Object sourceObject, final String targetField, final Descriptors.FieldDescriptor fieldDescriptor) {
+    public JXPathCopier copyScalarObject(final Object sourceObject, final String targetField,
+                    final Descriptors.FieldDescriptor fieldDescriptor) {
         Descriptors.FieldDescriptor.JavaType javaType = fieldDescriptor.getJavaType();
         switch (javaType) {
             case INT:
@@ -134,15 +129,21 @@ public class JXPathCopier {
 
         return this;
     }
-    
-    public JXPathCopier copyAsEnum(
-        final Object sourceObject, final String targetField, final Descriptors.FieldDescriptor fieldDescriptor) {
-        if (sourceObject != null) {
+
+    public JXPathCopier copyAsEnum(final Object sourceObject, final String targetField,
+                    final Descriptors.FieldDescriptor fieldDescriptor) {
+        if (sourceObject == null) {
+            return this;
+        }
+        Object value = null;
+        if (sourceObject instanceof Number) {
+            value = fieldDescriptor.getEnumType().findValueByNumber(((Number) sourceObject).intValue());
+        } else {
             String enumName = sourceObject.toString();
-            Object value = fieldDescriptor.getEnumType().findValueByName(enumName);
-            if (value != null) {
-                setTargetField(target, value, targetField);
-            }
+            value = fieldDescriptor.getEnumType().findValueByName(enumName);
+        }
+        if (value != null) {
+            setTargetField(target, value, targetField);
         }
         return this;
     }
@@ -262,7 +263,7 @@ public class JXPathCopier {
     }
 
     private static void setTargetField(final Builder target, final Object sourceObject, final String targetField)
-        throws IllegalArgumentException {
+                    throws IllegalArgumentException {
         Descriptors.FieldDescriptor fieldDescriptor = target.getDescriptorForType().findFieldByName(targetField);
         if (null == fieldDescriptor) {
             throw new RuntimeException("Unknown target field in protobuf: " + targetField);

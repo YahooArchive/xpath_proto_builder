@@ -22,7 +22,6 @@ message TransformedMessage {
     repeated string str_values = 8;
 
     required string nested = 9;
-    optional MessageEnum enum_value = 16;
 
 	required int64 ts_update = 10;
     optional string optional_value = 11;
@@ -32,6 +31,10 @@ message TransformedMessage {
     
     optional ContentImage image_by_handler = 14;
     repeated ContentImage images_by_handler = 15;
+    
+    optional MessageEnum enum_value = 16;
+    optional MessageEnum enum_value_from_int = 19;
+    optional MessageEnum enum_value_from_float = 20;
     
     required string constant_value = 17;
     required string var_value = 18;

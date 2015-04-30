@@ -13,6 +13,8 @@
           { "field": "long_value" },
           { "field": "bool_value" },
           { "field": "enum_value" },
+          { "field": "enum_value_from_int" },
+          { "field": "enum_value_from_float" },
           { "field": "str_values" },
           { "path": "select", "definition": "select_transform" },
           { "field": "constant_value", "path": "string('constant')" },
